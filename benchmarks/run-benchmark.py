@@ -17,7 +17,7 @@
 #
 
 import argparse
-from scripts.benchmarks import *
+from benchmarks import *
 
 delta_version = "2.1.0"
 iceberg_version = "1.4.2"

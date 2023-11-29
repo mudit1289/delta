@@ -14,11 +14,10 @@
 # limitations under the License.
 #
 
-from scripts.utils import *
 from datetime import datetime
 import time
 
-from benchmarks.scripts.utils import run_cmd_over_ssh, run_cmd
+from utils import *
 
 
 class BenchmarkSpec:
@@ -33,14 +32,14 @@ class BenchmarkSpec:
     """
 
     def __init__(
-            self, format_name, format_version, maven_artifacts, spark_confs,
+            self, format_name, maven_artifacts, spark_confs,
             benchmark_main_class, main_class_args, extra_spark_shell_args=None, **kwargs):
         if main_class_args is None:
             main_class_args = []
         if extra_spark_shell_args is None:
             extra_spark_shell_args = []
         self.format_name = format_name
-        self.format_version = format_version
+        # self.format_version = format_version
         self.maven_artifacts = maven_artifacts
         self.spark_confs = spark_confs
         self.benchmark_main_class = benchmark_main_class
@@ -82,9 +81,9 @@ class BenchmarkSpec:
             spark_conf_str += f"""--conf "{conf}" """
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_shell_cmd = (
-                f"/var/lib/fk-pf-spark3/bin/spark-shell {spark_shell_args_str} " +
+                f"/var/lib/fk-pf-spark3/bin/spark-shell --queue de_P0 --master yarn --deploy-mode client {spark_shell_args_str} " +
                 (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
-                f"{spark_conf_str} --jars {benchmark_jar_path} -I {benchmark_init_file_path}"
+                f" --conf --driver-memory 10G --executor-memory 10G --jars {benchmark_jar_path} -I {benchmark_init_file_path}"
         )
         print(spark_shell_cmd)
         return spark_shell_cmd
@@ -221,7 +220,7 @@ class IcebergBenchmarkSpec(BenchmarkSpec):
 
         super().__init__(
             format_name="iceberg",
-            format_version=2,
+            # format_version=2,
             maven_artifacts=self.iceberg_maven_artifacts(iceberg_version, self.scala_version),
             benchmark_main_class=benchmark_main_class,
             main_class_args=main_class_args,
@@ -238,12 +237,12 @@ class IcebergBenchmarkSpec(BenchmarkSpec):
 
 
 class IcebergTPCDSDataLoadSpec(TPCDSDataLoadSpec, IcebergBenchmarkSpec):
-    def __init__(self, iceberg_version, scale_in_gb=1):
+    def __init__(self, iceberg_version, scale_in_gb=1, use_datasource=True):
         super().__init__(iceberg_version=iceberg_version, scale_in_gb=scale_in_gb)
 
 
 class IcebergTPCDSBenchmarkSpec(TPCDSBenchmarkSpec, IcebergBenchmarkSpec):
-    def __init__(self, iceberg_version, scale_in_gb=1):
+    def __init__(self, iceberg_version, scale_in_gb=1, use_datasource=True):
         super().__init__(iceberg_version=iceberg_version, scale_in_gb=scale_in_gb)
 
 
@@ -321,7 +320,7 @@ touch {self.completed_file}
         jar_local_path = out.decode("utf-8").strip()
         jar_remote_path = f"{self.benchmark_id}-benchmarks.jar"
         scp_cmd = \
-            f"scp -C {jar_local_path} {cluster_ip}:{jar_remote_path}"
+            f"scp -C {jar_local_path} {cluster_ip}:~/{jar_remote_path}"
         print(scp_cmd)
         run_cmd(scp_cmd, stream_output=True)
         print(">>> Benchmark JAR uploaded to cluster\n")
@@ -354,8 +353,8 @@ fi
         print(">>> Install dependencies script generated and uploaded\n")
 
         job_cmd = (
-                f"ssh -i {cluster_hostname} " +
-                f"bash {script_file_name}"
+                f"ssh {cluster_hostname} " +
+                f"bash ~/{script_file_name}"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
@@ -374,14 +373,14 @@ fi
 
         # Start the script
         job_cmd = (
-                f"ssh -i {cluster_hostname} " +
-                f"screen -d -m bash {script_file_name}"
+                f"ssh {cluster_hostname} " +
+                f"screen -S 14743.benchmark -d -m bash {script_file_name}"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
 
         # Print the screen where it is running
-        run_cmd(f"ssh -i {cluster_hostname}" +
+        run_cmd(f"ssh {cluster_hostname}" +
                 f""" "screen -ls ; sleep 2; echo Files for this benchmark: ; ls {self.benchmark_id}*" """,
                 stream_output=True, throw_on_error=False)
         print(f">>> Benchmark id {self.benchmark_id} started in a screen. Stdout piped into {self.output_file}. "
@@ -396,7 +395,7 @@ fi
 
             scp_cmd = (
                     f"scp {script_file_name}" +
-                    f" {cluster_hostname}:{script_file_name}"
+                    f" {cluster_hostname}:~/{script_file_name}"
             )
             print(scp_cmd)
             run_cmd(scp_cmd, stream_output=True)
@@ -472,7 +471,7 @@ fi
     @staticmethod
     def download_file(file, cluster_hostname):
         run_cmd(f"scp -C " +
-                f"{cluster_hostname}:{file} {file}",
+                f"{cluster_hostname}:~/{file} {file}",
                 stream_output=True)
 
     def compile_iceberg_jars_and_get_version(self):
@@ -502,7 +501,7 @@ fi
                 cluster_hostname, stream_output=True, throw_on_error=False)
             run_cmd_over_ssh(f"mkdir -p {remote_maven_dir}", cluster_hostname, stream_output=True)
             scp_cmd = f"""scp -r -C {local_maven_delta_dir.rstrip("/")} """ +\
-                      f"{cluster_hostname}:{remote_maven_dir}"
+                      f"{cluster_hostname}:~/{remote_maven_dir}"
             print(scp_cmd)
             run_cmd(scp_cmd, stream_output=True)
             print(f">>> Delta {version} JAR uploaded to cluster\n")
