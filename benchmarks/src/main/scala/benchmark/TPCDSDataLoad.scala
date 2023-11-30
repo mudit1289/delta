@@ -74,7 +74,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
   def runInternal(): Unit = {
     val dbName = conf.dbName
     val dbLocation = conf.dbLocation(dbName, suffix=benchmarkId.replace("-", "_"))
-    val dbCatalog = "spark_catalog"
+    val dbCatalog = "hive_pluto"
 
     val partitionTables = true
     val primaryKeys = true
@@ -91,9 +91,9 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     // Iterate through all the source tables
     tableNamesTpcds.foreach { tableName =>
-      val sourceTableLocation = s"${sourceLocation}/${tableName}/"
+      val sourceTableLocation = s"${sourceLocation}/${tableName}"+"_1gb_parquet"
       val targetLocation = s"${dbLocation}/${tableName}/"
-      val fullTableName = s"`$dbName`.`$tableName`"
+      val fullTableName = s"`$dbCatalog`.`$dbName`.`$tableName`"
       log(s"Generating $tableName at $dbLocation/$tableName")
       val partitionedBy =
         if (!partitionTables || tablePartitionKeys(tableName)(0).isEmpty) ""
@@ -111,7 +111,8 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
                    USING ${conf.formatName}
                    $partitionedBy $tableOptions
                    LOCATION '$targetLocation'
-                   SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` $excludeNulls
+                   TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2)
+                   AS SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` $excludeNulls
                 """, s"create-table-$tableName", ignoreError = true)
 
       val sourceCount =
@@ -136,9 +137,12 @@ object TPCDSDataLoad {
 
   val tableNamesTpcds = Seq(
     // with partitions
-    "inventory", "catalog_returns", "catalog_sales", "store_returns",  "web_returns", "web_sales",  "store_sales",
+    "inventory",
+    "catalog_returns"
+    ,"catalog_sales", "store_returns",  "web_returns", "web_sales",  "store_sales",
     // no partitions
-    "call_center", "catalog_page", "customer_address", "customer_demographics", "customer", "date_dim",
+    "call_center",
+        "catalog_page", "customer_address", "customer_demographics", "customer", "date_dim",
     "household_demographics", "income_band", "item", "promotion", "reason", "ship_mode", "store", "time_dim",
     "warehouse", "web_page", "web_site"
   ).sorted

@@ -81,9 +81,10 @@ class BenchmarkSpec:
             spark_conf_str += f"""--conf "{conf}" """
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_shell_cmd = (
-                f"/var/lib/fk-pf-spark3/bin/spark-shell --queue de_P0 --master yarn --deploy-mode client {spark_shell_args_str} " +
-                (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
-                f" --conf --driver-memory 10G --executor-memory 10G --jars {benchmark_jar_path} -I {benchmark_init_file_path}"
+                f"/var/lib/fk-pf-spark3/bin/spark-shell --queue de_adhoc --master yarn --deploy-mode client {spark_shell_args_str} " +
+                #(f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
+                f"{spark_conf_str} --jars {benchmark_jar_path},/var/lib/fk-pf-spark3/jars/iceberg-hive-runtime-1.2.0.jar,/var/lib/fk-pf-spark3/jars/iceberg-spark-runtime-3.1_2.12-1.2.0.jar -I {benchmark_init_file_path}"
+
         )
         print(spark_shell_cmd)
         return spark_shell_cmd
@@ -209,7 +210,11 @@ class IcebergBenchmarkSpec(BenchmarkSpec):
             "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
             "spark.sql.catalog.hive_pluto=org.apache.iceberg.spark.SparkCatalog",
             "spark.sql.catalog.hive_pluto.type=hive",
-            "spark.sql.catalog.hive_pluto.uri=thrift://10.116.20.102:9083"
+            "spark.sql.catalog.hive_pluto.uri=thrift://10.116.17.2:9083",
+            "spark.sql.sources.partitionOverwriteMode=dynamic",
+            "spark.executor.extraJavaOptions=-XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2",
+            "spark.driver.memory=5120m",
+            "spark.executor.memory=10240m"
         ]
         self.scala_version = scala_version
 
@@ -219,7 +224,7 @@ class IcebergBenchmarkSpec(BenchmarkSpec):
             kwargs["spark_confs"] = iceberg_spark_confs
 
         super().__init__(
-            format_name="iceberg",
+            format_name="ICEBERG",
             # format_version=2,
             maven_artifacts=self.iceberg_maven_artifacts(iceberg_version, self.scala_version),
             benchmark_main_class=benchmark_main_class,
@@ -233,7 +238,7 @@ class IcebergBenchmarkSpec(BenchmarkSpec):
 
     @staticmethod
     def iceberg_maven_artifacts(iceberg_version, scala_version):
-        return f"org.apache.iceberg:iceberg-hive-runtime:{iceberg_version},org.apache.iceberg:iceberg-spark-runtime<:{iceberg_version}"
+        return f"org.apache.iceberg:iceberg-hive-runtime:{iceberg_version},org.apache.iceberg:iceberg-spark-runtime:{iceberg_version}"
 
 
 class IcebergTPCDSDataLoadSpec(TPCDSDataLoadSpec, IcebergBenchmarkSpec):
@@ -274,7 +279,7 @@ class Benchmark:
         if self.local_delta_dir and isinstance(self.benchmark_spec, IcebergBenchmarkSpec):
             # Upload new Delta jar to cluster and update spec to use the jar's version
             iceberg_version_to_use = \
-                self.compile_iceberg_jars_and_get_version()
+                self.compile_iceberg_jars_and_get_version(cluster_hostname)
             self.benchmark_spec.update_iceberg_version(iceberg_version_to_use)
 
         jar_path_in_cluster = self.upload_jar_to_cluster(cluster_hostname)
@@ -474,7 +479,7 @@ fi
                 f"{cluster_hostname}:~/{file} {file}",
                 stream_output=True)
 
-    def compile_iceberg_jars_and_get_version(self):
+    def compile_iceberg_jars_and_get_version(self, cluster_hostname):
         if not self.local_delta_dir:
             raise Exception("Path to delta repo not specified")
         delta_repo_dir = os.path.abspath(self.local_delta_dir)

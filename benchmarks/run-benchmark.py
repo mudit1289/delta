@@ -20,7 +20,7 @@ import argparse
 from benchmarks import *
 
 delta_version = "2.1.0"
-iceberg_version = "1.4.2"
+iceberg_version = "1.2.0"
 
 # Benchmark name to their specifications. See the imported benchmarks.py for details of benchmark.
 
@@ -93,7 +93,8 @@ def parse_args():
         "--use-local-delta-dir",
         help="Local path to delta repository which will be used for running the benchmark " +
              "instead of the version specified in the specification. Make sure that new delta" +
-             " version is compatible with version in the spec.")
+             " version is compatible "
+             "with version in the spec.")
     parser.add_argument(
         "--cloud-provider",
         choices=delta_log_store_classes.keys(),
@@ -134,7 +135,7 @@ if __name__ == "__main__":
     Extended Iceberg usuage:
     
     ./run-benchmark.py --cluster-hostname 10.116.19.186 --benchmark tpcds-1gb-iceberg-load,tpcds-10gb-iceberg-load,tpcds-1gb-iceberg,
-    tpcds-10gb-iceberg --benchmark-path <BENCHMARK_PATH> --source-path <SOURCE_PATH> --cloud-provider gcp --spark-conf --driver-memory 10G --executor-memory 15G 
+    tpcds-10gb-iceberg --benchmark-path <BENCHMARK_PATH> --source-path <SOURCE_PATH> --cloud-provider gcp --spark-conf "--driver-memory 10G --executor-memory 15G" 
 
     """
 

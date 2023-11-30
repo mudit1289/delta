@@ -82,7 +82,8 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
   val dbName = conf.dbName
   val extraConfs: Map[String, String] = Map(
     "spark.sql.broadcastTimeout" -> "7200",
-    "spark.sql.crossJoin.enabled" -> "true"
+    "spark.sql.crossJoin.enabled" -> "true",
+
   )
 
   def runInternal(): Unit = {
