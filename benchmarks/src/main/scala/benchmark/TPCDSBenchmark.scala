@@ -90,7 +90,7 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
     for ((k, v) <- extraConfs) spark.conf.set(k, v)
     spark.sparkContext.setLogLevel("WARN")
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))
-    spark.sql(s"USE $dbName")
+    spark.sql(s"USE hive_pluto.tpcds_sf1_iceberg")
     for (iteration <- 1 to conf.iterations) {
       queries.toSeq.sortBy(_._1).foreach { case (name, sql) =>
         runQuery(sql, iteration = Some(iteration), queryName = name)
