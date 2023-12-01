@@ -22,7 +22,8 @@ case class TPCDSDataLoadConf(
     userDefinedDbName: Option[String] = None,
     sourcePath: Option[String] = None,
     benchmarkPath: Option[String] = None,
-    excludeNulls: Boolean = true) extends TPCDSConf
+    excludeNulls: Boolean = true,
+    useDataSource: Boolean = false) extends TPCDSConf
 
 object TPCDSDataLoadConf {
   import scopt.OParser
@@ -60,6 +61,11 @@ object TPCDSDataLoadConf {
         .valueName("true/false")
         .action((x, c) => c.copy(excludeNulls = x.toBoolean))
         .text("Whether to remove null primary keys when loading data, default = false"),
+      opt[String]("use-datasource")
+        .optional()
+        .valueName("true/false")
+        .action((x, c) => c.copy(useDataSource = x.toBoolean))
+        .text("Whether to use spark datasource instead of spark-sql for Hudi writes, default = false"),
     )
   }
 
@@ -70,6 +76,7 @@ object TPCDSDataLoadConf {
 
 class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
   import TPCDSDataLoad._
+  import org.apache.spark.sql.SaveMode._
 
   def runInternal(): Unit = {
     val dbName = conf.dbName
@@ -94,20 +101,118 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
       val sourceTableLocation = s"${sourceLocation}/${tableName}"+"_1gb_parquet"
       val targetLocation = s"${dbLocation}/${tableName}/"
       val fullTableName = s"`$dbCatalog`.`$dbName`.`$tableName`"
-      log(s"Generating $tableName at $dbLocation/$tableName")
-      val partitionedBy =
-        if (!partitionTables || tablePartitionKeys(tableName)(0).isEmpty) ""
-        else "PARTITIONED BY " + tablePartitionKeys(tableName).mkString("(", ", ", ")")
+//      log(s"Generating $tableName at $dbLocation/$tableName")
+//      val partitionedBy =
+//        if (!partitionTables || tablePartitionKeys(tableName)(0).isEmpty) ""
+//        else "PARTITIONED BY " + tablePartitionKeys(tableName).mkString("(", ", ", ")")
+//
+//      // Excluding nulls automatically when n
+//      val excludeNulls =
+//        if (!partitionTables || tablePartitionKeys(tableName)(0).isEmpty) ""
+//        else "WHERE " + tablePartitionKeys(tableName)(0) + " IS NOT NULL"
 
-      // Excluding nulls automatically when n
-      val excludeNulls =
-        if (!partitionTables || tablePartitionKeys(tableName)(0).isEmpty) ""
-        else "WHERE " + tablePartitionKeys(tableName)(0) + " IS NOT NULL"
+      val partitionKeys = tablePartitionKeys(tableName)
+      val primaryKeys = tablePrimaryKeys(tableName)
 
-      var tableOptions = ""
-      runQuery(s"DROP TABLE IF EXISTS $fullTableName", s"drop-table-$tableName")
+      if (conf.useDataSource && "hudi".equalsIgnoreCase(conf.formatName)) {
+        log(s"Generating $tableName at $dbLocation/$tableName using datasource")
+        val df = spark.read.parquet(sourceTableLocation)
+        val partitionFields =
+          if (!partitionTables || partitionKeys.head.isEmpty) ""
+          else partitionKeys.mkString(",")
 
-      runQuery(s"""CREATE TABLE $fullTableName
+        val keygenClass = if ("".equalsIgnoreCase(partitionFields)) {
+          "org.apache.hudi.keygen.NonpartitionedKeyGenerator"
+        } else {
+          "org.apache.hudi.keygen.ComplexKeyGenerator"
+        }
+
+        val filteredDF = if (!partitionTables || partitionKeys.head.isEmpty) {
+          df
+        } else {
+          df.where(s"${partitionKeys.head} IS NOT NULL")
+        }
+
+        // Drop the SQL table from the catalog if exists
+        spark.sql(s"DROP TABLE IF EXISTS $fullTableName").show
+
+        val before = System.nanoTime()
+        filteredDF.write.format("hudi").
+          option("hoodie.datasource.write.precombine.field", "").
+          option("hoodie.datasource.write.recordkey.field", primaryKeys.mkString(",")).
+          option("hoodie.datasource.write.partitionpath.field", partitionFields).
+          option("hoodie.datasource.write.keygenerator.class", keygenClass).
+          option("hoodie.table.name", tableName).
+          option("hoodie.datasource.write.table.name", tableName).
+          option("hoodie.datasource.write.hive_style_partitioning", "true").
+          option("hoodie.datasource.write.operation", "bulk_insert").
+          option("hoodie.combine.before.insert", "false").
+          option("hoodie.bulkinsert.sort.mode", "NONE").
+          option("hoodie.parquet.compression.codec", "snappy").
+          option("hoodie.parquet.writelegacyformat.enabled", "false").
+          option("hoodie.metadata.enable", "false").
+          option("hoodie.populate.meta.fields", "false").
+          option("hoodie.parquet.max.file.size", "141557760"). // 135Mb
+          option("hoodie.parquet.block.size", "141557760"). // 135Mb
+          mode(Overwrite).
+          save(targetLocation)
+        val after = System.nanoTime()
+        val durationMs = (after - before) / (1000 * 1000)
+
+//      var tableOptions = ""
+//      runQuery(s"DROP TABLE IF EXISTS $fullTableName", s"drop-table-$tableName")
+        // Create SQL table in the catalog, that was written via
+        // Spark Datasource
+        spark.sql(
+          s"""
+             |CREATE TABLE $fullTableName
+             |USING HUDI
+             |LOCATION '$targetLocation'
+             |""".stripMargin).show
+
+//      runQuery(s"""CREATE TABLE $fullTableName
+        queryResults += QueryResult(s"ds-create-table-$tableName", Some(1), Some(durationMs), errorMsg = None)
+        log(s"END took $durationMs ms: ds-create-table-$tableName-iteration-1")
+        log("=" * 80)
+      } else {
+        log(s"Generating $tableName at $dbLocation/$tableName")
+        val partitionedBy =
+          if (!partitionTables || partitionKeys.head.isEmpty) ""
+          else "PARTITIONED BY " + partitionKeys.mkString("(", ", ", ")")
+
+        // Excluding nulls automatically when n
+        val excludeNulls =
+          if (!partitionTables || partitionKeys.head.isEmpty) ""
+          else "WHERE " + partitionKeys.head + " IS NOT NULL"
+
+
+        val tableOptions = if ("hudi".equalsIgnoreCase(conf.formatName)) {
+          s"""
+             |OPTIONS (
+             | type = 'cow',
+             | primaryKey = '${primaryKeys.mkString(",")}',
+             | precombineField = '',
+             | 'hoodie.datasource.write.hive_style_partitioning' = 'true',
+             | 'hoodie.parquet.compression.codec' = 'snappy',
+             | 'hoodie.populate.meta.fields' = 'false',
+             | 'hoodie.combine.before.insert' = 'false',
+             | 'hoodie.sql.insert.mode' = 'non-strict',
+             | 'hoodie.sql.bulk.insert.enable' = 'true',
+             | 'hoodie.bulkinsert.sort.mode' = 'NONE',
+             | 'hoodie.parquet.max.file.size' = '141557760',
+             | 'hoodie.parquet.block.size' = '141557760',
+             | 'hoodie.metadata.enable' = 'false',
+             | 'hoodie.parquet.writelegacyformat.enabled' = 'false'
+             |)
+             |""".stripMargin
+        } else {
+          ""
+        }
+
+        runQuery(s"DROP TABLE IF EXISTS $fullTableName", s"drop-table-$tableName")
+
+        runQuery(
+          s"""CREATE TABLE $fullTableName
                    USING ${conf.formatName}
                    $partitionedBy $tableOptions
                    LOCATION '$targetLocation'
@@ -115,11 +220,17 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
                    AS SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` $excludeNulls
                 """, s"create-table-$tableName", ignoreError = true)
 
-      val sourceCount =
-        spark.sql(s"SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` ${excludeNulls}").count()
-      val targetCount = spark.table(fullTableName).count()
-      assert(targetCount == sourceCount,
-        s"Row count mismatch: source table = $sourceCount, target $fullTableName = $targetCount")
+//      val sourceCount =
+//        spark.sql(s"SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` ${excludeNulls}").count()
+//      val targetCount = spark.table(fullTableName).count()
+//      assert(targetCount == sourceCount,
+//        s"Row count mismatch: source table = $sourceCount, target $fullTableName = $targetCount")
+          val sourceCount =
+            spark.sql(s"SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` ${excludeNulls}").count()
+          val targetCount = spark.table(fullTableName).count()
+            assert(targetCount == sourceCount,
+            s"Row count mismatch: source table = $sourceCount, target $fullTableName = $targetCount")
+        }
     }
     log(s"====== Created all tables in database ${dbName} at '${dbLocation}' =======")
 

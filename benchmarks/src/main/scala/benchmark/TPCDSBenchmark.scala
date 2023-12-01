@@ -87,6 +87,7 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
   )
 
   def runInternal(): Unit = {
+    sys.props.update("spark.ui.proxyBase", "")
     for ((k, v) <- extraConfs) spark.conf.set(k, v)
     spark.sparkContext.setLogLevel("WARN")
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))

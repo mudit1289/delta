@@ -20,7 +20,7 @@ scalaVersion := "2.12.17"
 lazy val root = (project in file("."))
   .settings(
     name := "benchmarks",
-    libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.1.2" % "provided",
+    libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.4.1" % "provided",
     libraryDependencies += "com.github.scopt" %% "scopt" % "4.0.1",
     libraryDependencies += "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.10.0",
 
