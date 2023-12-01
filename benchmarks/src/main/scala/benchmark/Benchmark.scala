@@ -111,7 +111,7 @@ abstract class Benchmark(private val conf: BenchmarkConf) {
     s
   }
 
-  private val queryResults = new mutable.ArrayBuffer[QueryResult]
+  protected val queryResults = new mutable.ArrayBuffer[QueryResult]
   private val extraMetrics = new mutable.HashMap[String, Double]
 
   protected def run(): Unit = {
