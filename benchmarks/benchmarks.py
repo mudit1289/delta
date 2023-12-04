@@ -81,9 +81,9 @@ class BenchmarkSpec:
             spark_conf_str += f"""--conf "{conf}" """
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_shell_cmd = (
-                f"/var/lib/fk-pf-spark3/bin/spark-shell --queue de_adhoc --master yarn --deploy-mode client {spark_shell_args_str} " +
+                f"/var/lib/fk-pf-spark3-4/bin/spark-shell --queue de_adhoc --master yarn --deploy-mode client {spark_shell_args_str} " +
                 #(f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
-                f"{spark_conf_str} --jars {benchmark_jar_path},/var/lib/fk-pf-spark3/jars/iceberg-hive-runtime-1.2.0.jar,/var/lib/fk-pf-spark3/jars/iceberg-spark-runtime-3.1_2.12-1.2.0.jar -I {benchmark_init_file_path}"
+                f"{spark_conf_str} --jars {benchmark_jar_path},/var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar -I {benchmark_init_file_path}"
 
         )
         print(spark_shell_cmd)
