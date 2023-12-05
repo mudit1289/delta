@@ -34,7 +34,7 @@ case class TPCDSBenchmarkConf(
      protected val format: Option[String] = None,
      scaleInGB: Int = 0,
      userDefinedDbName: Option[String] = None,
-     iterations: Int = 3,
+     iterations: Int = 4,
      benchmarkPath: Option[String] = None) extends TPCDSConf
 
 object TPCDSBenchmarkConf {
@@ -90,7 +90,7 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
     for ((k, v) <- extraConfs) spark.conf.set(k, v)
     spark.sparkContext.setLogLevel("WARN")
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))
-    spark.sql(s"USE hive_pluto.tpcds_sf1_iceberg")
+    spark.sql(s"USE hive_pluto.tpcds_sf10_iceberg")
     for (iteration <- 1 to conf.iterations) {
       queries.toSeq.sortBy(_._1).foreach { case (name, sql) =>
         runQuery(sql, iteration = Some(iteration), queryName = name)

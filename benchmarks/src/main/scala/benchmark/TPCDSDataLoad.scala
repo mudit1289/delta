@@ -81,7 +81,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     val sourceFormat = "parquet"
     require(conf.scaleInGB > 0)
-    require(Seq(1, 3000).contains(conf.scaleInGB), "")
+    require(Seq(1, 10).contains(conf.scaleInGB), "")
     val sourceLocation = conf.sourcePath.getOrElse {
       s"s3://devrel-delta-datasets/tpcds-2.13/tpcds_sf${conf.scaleInGB}_parquet/"
     }
@@ -91,7 +91,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     // Iterate through all the source tables
     tableNamesTpcds.foreach { tableName =>
-      val sourceTableLocation = s"${sourceLocation}/${tableName}"+"_1gb_parquet"
+      val sourceTableLocation = s"${sourceLocation}/${tableName}"+"_10gb_parquet"
       val targetLocation = s"${dbLocation}/${tableName}/"
       val fullTableName = s"`$dbCatalog`.`$dbName`.`$tableName`"
       log(s"Generating $tableName at $dbLocation/$tableName")
