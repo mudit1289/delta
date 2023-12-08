@@ -84,9 +84,9 @@ class BenchmarkSpec:
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         jars = benchmark_jar_path + (f",{self.jar_artifacts}" if self.jar_artifacts else "")
         spark_shell_cmd = (
-                f"/var/lib/fk-pf-spark3-4/bin/spark-shell --queue de_adhoc --master yarn --deploy-mode client {spark_shell_args_str} " +
+                f"export SUDO_USER=BADGER; /var/lib/fk-pf-spark3-4/bin/spark-shell --queue critical --master yarn --deploy-mode client {spark_shell_args_str} " +
                 #(f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
-                f"{spark_conf_str} --jars {benchmark_jar_path},/var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar -I {benchmark_init_file_path}"
+                f"{spark_conf_str} --jars {benchmark_jar_path},/var/lib/fk-pf-spark3-4/jars/hudi-spark3.4-bundle_2.12-0.14.0.jar -I {benchmark_init_file_path}"
 
         )
         print(spark_shell_cmd)
@@ -138,7 +138,7 @@ class DeltaBenchmarkSpec(BenchmarkSpec):
     def __init__(self, delta_version, benchmark_main_class, main_class_args=None, scala_version="2.12", **kwargs):
         delta_spark_confs = [
             "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
-            "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
+            "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
         ]
         self.scala_version = scala_version
 
@@ -185,7 +185,13 @@ class HudiBenchmarkSpec(BenchmarkSpec):
     def __init__(self, hudi_version, benchmark_main_class, main_class_args=None, scala_version="2.12", **kwargs):
         hudi_spark_confs = [
             "spark.serializer=org.apache.spark.serializer.KryoSerializer",
-            "spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension"
+            "spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension",
+            "spark.executor.extraJavaOptions=-XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2",
+            "spark.driver.memory=8192m",
+            "spark.executor.memory=16384m",
+            "spark.hadoop.fs.gs.outputstream.upload.buffer.size=262144",
+            "spark.hadoop.fs.gs.outputstream.upload.chunk.size=1048576",
+            "spark.hadoopfs.gs.outputstream.upload.max.active.requests=4"
         ]
         self.scala_version = scala_version
 

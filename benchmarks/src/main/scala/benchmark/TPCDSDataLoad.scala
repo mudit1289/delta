@@ -88,7 +88,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     val sourceFormat = "parquet"
     require(conf.scaleInGB > 0)
-    require(Seq(1, 3000).contains(conf.scaleInGB), "")
+    require(Seq(1, 10).contains(conf.scaleInGB), "")
     val sourceLocation = conf.sourcePath.getOrElse {
       s"s3://devrel-delta-datasets/tpcds-2.13/tpcds_sf${conf.scaleInGB}_parquet/"
     }
@@ -100,7 +100,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
     tableNamesTpcds.foreach { tableName =>
       val sourceTableLocation = s"${sourceLocation}/${tableName}"+"_1gb_parquet"
       val targetLocation = s"${dbLocation}/${tableName}/"
-      val fullTableName = s"`$dbCatalog`.`$dbName`.`$tableName`"
+      val fullTableName = s"`$dbName`.`$tableName`"
 //      log(s"Generating $tableName at $dbLocation/$tableName")
 //      val partitionedBy =
 //        if (!partitionTables || tablePartitionKeys(tableName)(0).isEmpty) ""
@@ -216,7 +216,6 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
                    USING ${conf.formatName}
                    $partitionedBy $tableOptions
                    LOCATION '$targetLocation'
-                   TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2)
                    AS SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` $excludeNulls
                 """, s"create-table-$tableName", ignoreError = true)
 
@@ -234,7 +233,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
     }
     log(s"====== Created all tables in database ${dbName} at '${dbLocation}' =======")
 
-    runQuery(s"USE ${dbCatalog}.${dbName};")
+    runQuery(s"USE ${dbName};")
     runQuery("SHOW TABLES", printRows = true)
 
   }
