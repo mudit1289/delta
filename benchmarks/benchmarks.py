@@ -379,7 +379,7 @@ fi
         # Start the script
         job_cmd = (
                 f"ssh {cluster_hostname} " +
-                f"screen -S 14743.benchmark -d -m bash {script_file_name}"
+                f"screen -S 18923.iceber10gb-benchmark -d -m bash {script_file_name}"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
