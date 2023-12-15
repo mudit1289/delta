@@ -34,7 +34,7 @@ case class TPCDSBenchmarkConf(
      protected val format: Option[String] = None,
      scaleInGB: Int = 0,
      userDefinedDbName: Option[String] = None,
-     iterations: Int = 3,
+     iterations: Int = 4,
      benchmarkPath: Option[String] = None) extends TPCDSConf
 
 object TPCDSBenchmarkConf {
@@ -73,8 +73,8 @@ object TPCDSBenchmarkConf {
 
 class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
   val queries: Map[String, String] = {
-    if (conf.scaleInGB <= 3000) TPCDSQueries3TB
-    else if (conf.scaleInGB == 10) TPCDSQueries10TB
+    if (conf.scaleInGB <= 30) TPCDSQueries3TB
+    else if (conf.scaleInGB == 100) TPCDSQueries10TB
     else throw new IllegalArgumentException(
       s"Unsupported scale factor of ${conf.scaleInGB} GB")
   }
@@ -91,7 +91,7 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
     for ((k, v) <- extraConfs) spark.conf.set(k, v)
     spark.sparkContext.setLogLevel("WARN")
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))
-    spark.sql(s"USE hive_pluto.tpcds_sf1_iceberg")
+    spark.sql(s"USE tpcds_sf100_hudi")
     for (iteration <- 1 to conf.iterations) {
       queries.toSeq.sortBy(_._1).foreach { case (name, sql) =>
         runQuery(sql, iteration = Some(iteration), queryName = name)

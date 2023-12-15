@@ -186,12 +186,9 @@ class HudiBenchmarkSpec(BenchmarkSpec):
         hudi_spark_confs = [
             "spark.serializer=org.apache.spark.serializer.KryoSerializer",
             "spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension",
-            "spark.executor.extraJavaOptions=-XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2",
-            "spark.driver.memory=8192m",
-            "spark.executor.memory=16384m",
-            "spark.hadoop.fs.gs.outputstream.upload.buffer.size=262144",
-            "spark.hadoop.fs.gs.outputstream.upload.chunk.size=1048576",
-            "spark.hadoopfs.gs.outputstream.upload.max.active.requests=4"
+            "spark.driver.memory=5120m",
+            "spark.executor.memory=10240m"
+
         ]
         self.scala_version = scala_version
 
@@ -433,7 +430,7 @@ fi
         # Start the script
         job_cmd = (
                 f"ssh {cluster_hostname} " +
-                f"screen -S 14743.benchmark -d -m bash {script_file_name}"
+                f"screen -S 7687.14743.benchmark -d -m bash {script_file_name}"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
