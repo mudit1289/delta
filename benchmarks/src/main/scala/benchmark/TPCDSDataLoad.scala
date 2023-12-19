@@ -134,7 +134,12 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
         }
 
         // Drop the SQL table from the catalog if exists
+        val beforeDrop = System.nanoTime()
         spark.sql(s"DROP TABLE IF EXISTS $fullTableName").show
+        val afterDrop = System.nanoTime()
+        val dropDurationMs = (afterDrop - beforeDrop) / (1000 * 1000)
+        queryResults += QueryResult(s"drop-table-$tableName", Some(1), Some(dropDurationMs), errorMsg = None)
+        log(s"END took $durationMs ms: drop-table-$tableName-iteration-1")
 
         val before = System.nanoTime()
         filteredDF.write.format("hudi").

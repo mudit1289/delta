@@ -1,0 +1,2118 @@
+{
+  "benchmarkSpecs" : {
+    "benchmarkId" : "20231218-193622-tpcds-100gb-iceberg",
+    "benchmarkPath" : "hdfs://pluto/tmp/vanshika-yadav/hudi-benchmarking",
+    "format" : "ICEBERG",
+    "iterations" : "3",
+    "scaleInGB" : "100"
+  },
+  "extraMetrics" : { },
+  "queryResults" : [ {
+    "durationMs" : 76678,
+    "iteration" : 1,
+    "name" : "q1"
+  }, {
+    "durationMs" : 171045,
+    "iteration" : 1,
+    "name" : "q10"
+  }, {
+    "durationMs" : 252964,
+    "iteration" : 1,
+    "name" : "q11"
+  }, {
+    "durationMs" : 26249,
+    "iteration" : 1,
+    "name" : "q12"
+  }, {
+    "durationMs" : 252617,
+    "iteration" : 1,
+    "name" : "q13"
+  }, {
+    "durationMs" : 3345259,
+    "iteration" : 1,
+    "name" : "q14a"
+  }, {
+    "durationMs" : 1437023,
+    "iteration" : 1,
+    "name" : "q14b"
+  }, {
+    "durationMs" : 6858,
+    "iteration" : 1,
+    "name" : "q15"
+  }, {
+    "durationMs" : 8625,
+    "iteration" : 1,
+    "name" : "q16"
+  }, {
+    "durationMs" : 121292,
+    "iteration" : 1,
+    "name" : "q17"
+  }, {
+    "durationMs" : 13266,
+    "iteration" : 1,
+    "name" : "q18"
+  }, {
+    "durationMs" : 201847,
+    "iteration" : 1,
+    "name" : "q19"
+  }, {
+    "durationMs" : 210188,
+    "iteration" : 1,
+    "name" : "q2"
+  }, {
+    "durationMs" : 2862,
+    "iteration" : 1,
+    "name" : "q20"
+  }, {
+    "durationMs" : 1616,
+    "iteration" : 1,
+    "name" : "q21"
+  }, {
+    "durationMs" : 25099,
+    "iteration" : 1,
+    "name" : "q22"
+  }, {
+    "durationMs" : 2411485,
+    "iteration" : 1,
+    "name" : "q23a"
+  }, {
+    "durationMs" : 1625251,
+    "iteration" : 1,
+    "name" : "q23b"
+  }, {
+    "durationMs" : 912197,
+    "iteration" : 1,
+    "name" : "q24a"
+  }, {
+    "durationMs" : 960222,
+    "iteration" : 1,
+    "name" : "q24b"
+  }, {
+    "durationMs" : 119273,
+    "iteration" : 1,
+    "name" : "q25"
+  }, {
+    "durationMs" : 3611,
+    "iteration" : 1,
+    "name" : "q26"
+  }, {
+    "durationMs" : 111021,
+    "iteration" : 1,
+    "name" : "q27"
+  }, {
+    "durationMs" : 1280896,
+    "iteration" : 1,
+    "name" : "q28"
+  }, {
+    "durationMs" : 113063,
+    "iteration" : 1,
+    "name" : "q29"
+  }, {
+    "durationMs" : 158674,
+    "iteration" : 1,
+    "name" : "q3"
+  }, {
+    "durationMs" : 16748,
+    "iteration" : 1,
+    "name" : "q30"
+  }, {
+    "durationMs" : 585617,
+    "iteration" : 1,
+    "name" : "q31"
+  }, {
+    "durationMs" : 3591,
+    "iteration" : 1,
+    "name" : "q32"
+  }, {
+    "durationMs" : 250254,
+    "iteration" : 1,
+    "name" : "q33"
+  }, {
+    "durationMs" : 72428,
+    "iteration" : 1,
+    "name" : "q34"
+  }, {
+    "durationMs" : 343405,
+    "iteration" : 1,
+    "name" : "q35"
+  }, {
+    "durationMs" : 172104,
+    "iteration" : 1,
+    "name" : "q36"
+  }, {
+    "durationMs" : 2779,
+    "iteration" : 1,
+    "name" : "q37"
+  }, {
+    "durationMs" : 178701,
+    "iteration" : 1,
+    "name" : "q38"
+  }, {
+    "durationMs" : 6199,
+    "iteration" : 1,
+    "name" : "q39a"
+  }, {
+    "durationMs" : 5499,
+    "iteration" : 1,
+    "name" : "q39b"
+  }, {
+    "durationMs" : 250018,
+    "iteration" : 1,
+    "name" : "q4"
+  }, {
+    "durationMs" : 4322,
+    "iteration" : 1,
+    "name" : "q40"
+  }, {
+    "durationMs" : 686,
+    "iteration" : 1,
+    "name" : "q41"
+  }, {
+    "durationMs" : 153790,
+    "iteration" : 1,
+    "name" : "q42"
+  }, {
+    "durationMs" : 167268,
+    "iteration" : 1,
+    "name" : "q43"
+  }, {
+    "durationMs" : 3447,
+    "iteration" : 1,
+    "name" : "q44"
+  }, {
+    "durationMs" : 28024,
+    "iteration" : 1,
+    "name" : "q45"
+  }, {
+    "durationMs" : 68804,
+    "iteration" : 1,
+    "name" : "q46"
+  }, {
+    "durationMs" : 455462,
+    "iteration" : 1,
+    "name" : "q47"
+  }, {
+    "durationMs" : 417535,
+    "iteration" : 1,
+    "name" : "q48"
+  }, {
+    "durationMs" : 411820,
+    "iteration" : 1,
+    "name" : "q49"
+  }, {
+    "durationMs" : 830939,
+    "iteration" : 1,
+    "name" : "q5"
+  }, {
+    "durationMs" : 112636,
+    "iteration" : 1,
+    "name" : "q50"
+  }, {
+    "durationMs" : 392215,
+    "iteration" : 1,
+    "name" : "q51"
+  }, {
+    "durationMs" : 162715,
+    "iteration" : 1,
+    "name" : "q52"
+  }, {
+    "durationMs" : 165978,
+    "iteration" : 1,
+    "name" : "q53"
+  }, {
+    "durationMs" : 152439,
+    "iteration" : 1,
+    "name" : "q54"
+  }, {
+    "durationMs" : 154784,
+    "iteration" : 1,
+    "name" : "q55"
+  }, {
+    "durationMs" : 253644,
+    "iteration" : 1,
+    "name" : "q56"
+  }, {
+    "durationMs" : 11215,
+    "iteration" : 1,
+    "name" : "q57"
+  }, {
+    "durationMs" : 264543,
+    "iteration" : 1,
+    "name" : "q58"
+  }, {
+    "durationMs" : 831599,
+    "iteration" : 1,
+    "name" : "q59"
+  }, {
+    "durationMs" : 78095,
+    "iteration" : 1,
+    "name" : "q6"
+  }, {
+    "durationMs" : 255621,
+    "iteration" : 1,
+    "name" : "q60"
+  }, {
+    "durationMs" : 79876,
+    "iteration" : 1,
+    "name" : "q61"
+  }, {
+    "durationMs" : 54939,
+    "iteration" : 1,
+    "name" : "q62"
+  }, {
+    "durationMs" : 165061,
+    "iteration" : 1,
+    "name" : "q63"
+  }, {
+    "durationMs" : 214972,
+    "iteration" : 1,
+    "name" : "q64"
+  }, {
+    "durationMs" : 924949,
+    "iteration" : 1,
+    "name" : "q65"
+  }, {
+    "durationMs" : 81432,
+    "iteration" : 1,
+    "name" : "q66"
+  }, {
+    "durationMs" : 462400,
+    "iteration" : 1,
+    "name" : "q67"
+  }, {
+    "durationMs" : 69349,
+    "iteration" : 1,
+    "name" : "q68"
+  }, {
+    "durationMs" : 317129,
+    "iteration" : 1,
+    "name" : "q69"
+  }, {
+    "durationMs" : 337211,
+    "iteration" : 1,
+    "name" : "q7"
+  }, {
+    "durationMs" : 619857,
+    "iteration" : 1,
+    "name" : "q70"
+  }, {
+    "durationMs" : 795924,
+    "iteration" : 1,
+    "name" : "q71"
+  }, {
+    "durationMs" : 220615,
+    "iteration" : 1,
+    "name" : "q72"
+  }, {
+    "durationMs" : 68811,
+    "iteration" : 1,
+    "name" : "q73"
+  }, {
+    "durationMs" : 699163,
+    "iteration" : 1,
+    "name" : "q74"
+  }, {
+    "durationMs" : 440453,
+    "iteration" : 1,
+    "name" : "q75"
+  }, {
+    "durationMs" : 137801,
+    "iteration" : 1,
+    "name" : "q76"
+  }, {
+    "durationMs" : 234007,
+    "iteration" : 1,
+    "name" : "q77"
+  }, {
+    "durationMs" : 159365,
+    "iteration" : 1,
+    "name" : "q78"
+  }, {
+    "durationMs" : 159742,
+    "iteration" : 1,
+    "name" : "q79"
+  }, {
+    "durationMs" : 298810,
+    "iteration" : 1,
+    "name" : "q8"
+  }, {
+    "durationMs" : 143264,
+    "iteration" : 1,
+    "name" : "q80"
+  }, {
+    "durationMs" : 9313,
+    "iteration" : 1,
+    "name" : "q81"
+  }, {
+    "durationMs" : 84148,
+    "iteration" : 1,
+    "name" : "q82"
+  }, {
+    "durationMs" : 43460,
+    "iteration" : 1,
+    "name" : "q83"
+  }, {
+    "durationMs" : 14797,
+    "iteration" : 1,
+    "name" : "q84"
+  }, {
+    "durationMs" : 32479,
+    "iteration" : 1,
+    "name" : "q85"
+  }, {
+    "durationMs" : 49808,
+    "iteration" : 1,
+    "name" : "q86"
+  }, {
+    "durationMs" : 507885,
+    "iteration" : 1,
+    "name" : "q87"
+  }, {
+    "durationMs" : 936095,
+    "iteration" : 1,
+    "name" : "q88"
+  }, {
+    "durationMs" : 109547,
+    "iteration" : 1,
+    "name" : "q89"
+  }, {
+    "durationMs" : 1667391,
+    "iteration" : 1,
+    "name" : "q9"
+  }, {
+    "durationMs" : 95710,
+    "iteration" : 1,
+    "name" : "q90"
+  }, {
+    "durationMs" : 6539,
+    "iteration" : 1,
+    "name" : "q91"
+  }, {
+    "durationMs" : 83709,
+    "iteration" : 1,
+    "name" : "q92"
+  }, {
+    "durationMs" : 41066,
+    "iteration" : 1,
+    "name" : "q93"
+  }, {
+    "durationMs" : 521171,
+    "iteration" : 1,
+    "name" : "q94"
+  }, {
+    "durationMs" : 742294,
+    "iteration" : 1,
+    "name" : "q95"
+  }, {
+    "durationMs" : 128485,
+    "iteration" : 1,
+    "name" : "q96"
+  }, {
+    "durationMs" : 134790,
+    "iteration" : 1,
+    "name" : "q97"
+  }, {
+    "durationMs" : 121021,
+    "iteration" : 1,
+    "name" : "q98"
+  }, {
+    "durationMs" : 5680,
+    "iteration" : 1,
+    "name" : "q99"
+  }, {
+    "durationMs" : 108394,
+    "iteration" : 2,
+    "name" : "q1"
+  }, {
+    "durationMs" : 162870,
+    "iteration" : 2,
+    "name" : "q10"
+  }, {
+    "durationMs" : 824334,
+    "iteration" : 2,
+    "name" : "q11"
+  }, {
+    "durationMs" : 62518,
+    "iteration" : 2,
+    "name" : "q12"
+  }, {
+    "durationMs" : 361007,
+    "iteration" : 2,
+    "name" : "q13"
+  }, {
+    "durationMs" : 2442831,
+    "iteration" : 2,
+    "name" : "q14a"
+  }, {
+    "durationMs" : 2822520,
+    "iteration" : 2,
+    "name" : "q14b"
+  }, {
+    "durationMs" : 8991,
+    "iteration" : 2,
+    "name" : "q15"
+  }, {
+    "durationMs" : 26136,
+    "iteration" : 2,
+    "name" : "q16"
+  }, {
+    "durationMs" : 122238,
+    "iteration" : 2,
+    "name" : "q17"
+  }, {
+    "durationMs" : 26683,
+    "iteration" : 2,
+    "name" : "q18"
+  }, {
+    "durationMs" : 202098,
+    "iteration" : 2,
+    "name" : "q19"
+  }, {
+    "durationMs" : 67362,
+    "iteration" : 2,
+    "name" : "q2"
+  }, {
+    "durationMs" : 3267,
+    "iteration" : 2,
+    "name" : "q20"
+  }, {
+    "durationMs" : 2034,
+    "iteration" : 2,
+    "name" : "q21"
+  }, {
+    "durationMs" : 7564,
+    "iteration" : 2,
+    "name" : "q22"
+  }, {
+    "durationMs" : 2255947,
+    "iteration" : 2,
+    "name" : "q23a"
+  }, {
+    "durationMs" : 1153073,
+    "iteration" : 2,
+    "name" : "q23b"
+  }, {
+    "durationMs" : 831856,
+    "iteration" : 2,
+    "name" : "q24a"
+  }, {
+    "durationMs" : 836822,
+    "iteration" : 2,
+    "name" : "q24b"
+  }, {
+    "durationMs" : 114364,
+    "iteration" : 2,
+    "name" : "q25"
+  }, {
+    "durationMs" : 3441,
+    "iteration" : 2,
+    "name" : "q26"
+  }, {
+    "durationMs" : 182179,
+    "iteration" : 2,
+    "name" : "q27"
+  }, {
+    "durationMs" : 597355,
+    "iteration" : 2,
+    "name" : "q28"
+  }, {
+    "durationMs" : 136407,
+    "iteration" : 2,
+    "name" : "q29"
+  }, {
+    "durationMs" : 161210,
+    "iteration" : 2,
+    "name" : "q3"
+  }, {
+    "durationMs" : 68778,
+    "iteration" : 2,
+    "name" : "q30"
+  }, {
+    "durationMs" : 575254,
+    "iteration" : 2,
+    "name" : "q31"
+  }, {
+    "durationMs" : 3936,
+    "iteration" : 2,
+    "name" : "q32"
+  }, {
+    "durationMs" : 400017,
+    "iteration" : 2,
+    "name" : "q33"
+  }, {
+    "durationMs" : 70505,
+    "iteration" : 2,
+    "name" : "q34"
+  }, {
+    "durationMs" : 434360,
+    "iteration" : 2,
+    "name" : "q35"
+  }, {
+    "durationMs" : 713134,
+    "iteration" : 2,
+    "name" : "q36"
+  }, {
+    "durationMs" : 20417,
+    "iteration" : 2,
+    "name" : "q37"
+  }, {
+    "durationMs" : 571576,
+    "iteration" : 2,
+    "name" : "q38"
+  }, {
+    "durationMs" : 312290,
+    "iteration" : 2,
+    "name" : "q39a"
+  }, {
+    "durationMs" : 42057,
+    "iteration" : 2,
+    "name" : "q39b"
+  }, {
+    "durationMs" : 393322,
+    "iteration" : 2,
+    "name" : "q4"
+  }, {
+    "durationMs" : 32238,
+    "iteration" : 2,
+    "name" : "q40"
+  }, {
+    "durationMs" : 874,
+    "iteration" : 2,
+    "name" : "q41"
+  }, {
+    "durationMs" : 156800,
+    "iteration" : 2,
+    "name" : "q42"
+  }, {
+    "durationMs" : 166312,
+    "iteration" : 2,
+    "name" : "q43"
+  }, {
+    "durationMs" : 3367,
+    "iteration" : 2,
+    "name" : "q44"
+  }, {
+    "durationMs" : 28455,
+    "iteration" : 2,
+    "name" : "q45"
+  }, {
+    "durationMs" : 68789,
+    "iteration" : 2,
+    "name" : "q46"
+  }, {
+    "durationMs" : 1077315,
+    "iteration" : 2,
+    "name" : "q47"
+  }, {
+    "durationMs" : 135329,
+    "iteration" : 2,
+    "name" : "q48"
+  }, {
+    "durationMs" : 133846,
+    "iteration" : 2,
+    "name" : "q49"
+  }, {
+    "durationMs" : 235475,
+    "iteration" : 2,
+    "name" : "q5"
+  }, {
+    "durationMs" : 109585,
+    "iteration" : 2,
+    "name" : "q50"
+  }, {
+    "durationMs" : 173619,
+    "iteration" : 2,
+    "name" : "q51"
+  }, {
+    "durationMs" : 156995,
+    "iteration" : 2,
+    "name" : "q52"
+  }, {
+    "durationMs" : 167835,
+    "iteration" : 2,
+    "name" : "q53"
+  }, {
+    "durationMs" : 305902,
+    "iteration" : 2,
+    "name" : "q54"
+  }, {
+    "durationMs" : 314472,
+    "iteration" : 2,
+    "name" : "q55"
+  }, {
+    "durationMs" : 415367,
+    "iteration" : 2,
+    "name" : "q56"
+  }, {
+    "durationMs" : 35844,
+    "iteration" : 2,
+    "name" : "q57"
+  }, {
+    "durationMs" : 608611,
+    "iteration" : 2,
+    "name" : "q58"
+  }, {
+    "durationMs" : 215637,
+    "iteration" : 2,
+    "name" : "q59"
+  }, {
+    "durationMs" : 167138,
+    "iteration" : 2,
+    "name" : "q6"
+  }, {
+    "durationMs" : 267208,
+    "iteration" : 2,
+    "name" : "q60"
+  }, {
+    "durationMs" : 82409,
+    "iteration" : 2,
+    "name" : "q61"
+  }, {
+    "durationMs" : 57955,
+    "iteration" : 2,
+    "name" : "q62"
+  }, {
+    "durationMs" : 208102,
+    "iteration" : 2,
+    "name" : "q63"
+  }, {
+    "durationMs" : 575263,
+    "iteration" : 2,
+    "name" : "q64"
+  }, {
+    "durationMs" : 914931,
+    "iteration" : 2,
+    "name" : "q65"
+  }, {
+    "durationMs" : 82211,
+    "iteration" : 2,
+    "name" : "q66"
+  }, {
+    "durationMs" : 204403,
+    "iteration" : 2,
+    "name" : "q67"
+  }, {
+    "durationMs" : 70920,
+    "iteration" : 2,
+    "name" : "q68"
+  }, {
+    "durationMs" : 226047,
+    "iteration" : 2,
+    "name" : "q69"
+  }, {
+    "durationMs" : 288093,
+    "iteration" : 2,
+    "name" : "q7"
+  }, {
+    "durationMs" : 523322,
+    "iteration" : 2,
+    "name" : "q70"
+  }, {
+    "durationMs" : 206712,
+    "iteration" : 2,
+    "name" : "q71"
+  }, {
+    "durationMs" : 11565,
+    "iteration" : 2,
+    "name" : "q72"
+  }, {
+    "durationMs" : 69493,
+    "iteration" : 2,
+    "name" : "q73"
+  }, {
+    "durationMs" : 882104,
+    "iteration" : 2,
+    "name" : "q74"
+  }, {
+    "durationMs" : 452392,
+    "iteration" : 2,
+    "name" : "q75"
+  }, {
+    "durationMs" : 172390,
+    "iteration" : 2,
+    "name" : "q76"
+  }, {
+    "durationMs" : 373618,
+    "iteration" : 2,
+    "name" : "q77"
+  }, {
+    "durationMs" : 162656,
+    "iteration" : 2,
+    "name" : "q78"
+  }, {
+    "durationMs" : 624545,
+    "iteration" : 2,
+    "name" : "q79"
+  }, {
+    "durationMs" : 346524,
+    "iteration" : 2,
+    "name" : "q8"
+  }, {
+    "durationMs" : 142992,
+    "iteration" : 2,
+    "name" : "q80"
+  }, {
+    "durationMs" : 9004,
+    "iteration" : 2,
+    "name" : "q81"
+  }, {
+    "durationMs" : 87388,
+    "iteration" : 2,
+    "name" : "q82"
+  }, {
+    "durationMs" : 52186,
+    "iteration" : 2,
+    "name" : "q83"
+  }, {
+    "durationMs" : 20839,
+    "iteration" : 2,
+    "name" : "q84"
+  }, {
+    "durationMs" : 34421,
+    "iteration" : 2,
+    "name" : "q85"
+  }, {
+    "durationMs" : 51010,
+    "iteration" : 2,
+    "name" : "q86"
+  }, {
+    "durationMs" : 180542,
+    "iteration" : 2,
+    "name" : "q87"
+  }, {
+    "durationMs" : 956302,
+    "iteration" : 2,
+    "name" : "q88"
+  }, {
+    "durationMs" : 114991,
+    "iteration" : 2,
+    "name" : "q89"
+  }, {
+    "durationMs" : 1692013,
+    "iteration" : 2,
+    "name" : "q9"
+  }, {
+    "durationMs" : 98517,
+    "iteration" : 2,
+    "name" : "q90"
+  }, {
+    "durationMs" : 6798,
+    "iteration" : 2,
+    "name" : "q91"
+  }, {
+    "durationMs" : 108041,
+    "iteration" : 2,
+    "name" : "q92"
+  }, {
+    "durationMs" : 44867,
+    "iteration" : 2,
+    "name" : "q93"
+  }, {
+    "durationMs" : 724636,
+    "iteration" : 2,
+    "name" : "q94"
+  }, {
+    "durationMs" : 127782,
+    "iteration" : 2,
+    "name" : "q95"
+  }, {
+    "durationMs" : 130901,
+    "iteration" : 2,
+    "name" : "q96"
+  }, {
+    "durationMs" : 151954,
+    "iteration" : 2,
+    "name" : "q97"
+  }, {
+    "durationMs" : 124981,
+    "iteration" : 2,
+    "name" : "q98"
+  }, {
+    "durationMs" : 17767,
+    "iteration" : 2,
+    "name" : "q99"
+  }, {
+    "durationMs" : 218144,
+    "iteration" : 3,
+    "name" : "q1"
+  }, {
+    "durationMs" : 173840,
+    "iteration" : 3,
+    "name" : "q10"
+  }, {
+    "durationMs" : 939624,
+    "iteration" : 3,
+    "name" : "q11"
+  }, {
+    "durationMs" : 52871,
+    "iteration" : 3,
+    "name" : "q12"
+  }, {
+    "durationMs" : 248762,
+    "iteration" : 3,
+    "name" : "q13"
+  }, {
+    "errorMsg" : "Multiple failures in stage materialization.",
+    "iteration" : 3,
+    "name" : "q14a"
+  }, {
+    "durationMs" : 2875885,
+    "iteration" : 3,
+    "name" : "q14b"
+  }, {
+    "durationMs" : 8684,
+    "iteration" : 3,
+    "name" : "q15"
+  }, {
+    "durationMs" : 139852,
+    "iteration" : 3,
+    "name" : "q16"
+  }, {
+    "durationMs" : 156125,
+    "iteration" : 3,
+    "name" : "q17"
+  }, {
+    "durationMs" : 32954,
+    "iteration" : 3,
+    "name" : "q18"
+  }, {
+    "durationMs" : 422239,
+    "iteration" : 3,
+    "name" : "q19"
+  }, {
+    "durationMs" : 203658,
+    "iteration" : 3,
+    "name" : "q2"
+  }, {
+    "durationMs" : 2884,
+    "iteration" : 3,
+    "name" : "q20"
+  }, {
+    "durationMs" : 1460,
+    "iteration" : 3,
+    "name" : "q21"
+  }, {
+    "durationMs" : 19890,
+    "iteration" : 3,
+    "name" : "q22"
+  }, {
+    "errorMsg" : "Job aborted due to stage failure: ShuffleMapStage 4925 (collect at Benchmark.scala:147) has failed the maximum allowable number of times: 4. Most recent failure reason:\norg.apache.spark.shuffle.FetchFailedException\n\tat org.apache.spark.errors.SparkCoreErrors$.fetchFailedError(SparkCoreErrors.scala:437)\n\tat org.apache.spark.storage.ShuffleBlockFetcherIterator.throwFetchFailedException(ShuffleBlockFetcherIterator.scala:1232)\n\tat org.apache.spark.storage.ShuffleBlockFetcherIterator.next(ShuffleBlockFetcherIterator.scala:971)\n\tat org.apache.spark.storage.ShuffleBlockFetcherIterator.next(ShuffleBlockFetcherIterator.scala:86)\n\tat org.apache.spark.util.CompletionIterator.next(CompletionIterator.scala:29)\n\tat scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)\n\tat scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)\n\tat scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)\n\tat org.apache.spark.util.CompletionIterator.hasNext(CompletionIterator.scala:31)\n\tat org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)\n\tat scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)\n\tat org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage15.hashAgg_doAggregateWithKeys_0$(Unknown Source)\n\tat org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage15.processNext(Unknown Source)\n\tat org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)\n\tat org.apache.spark.sql.execution.WholeStageCodegenExec$$anon$1.hasNext(WholeStageCodegenExec.scala:760)\n\tat scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)\n\tat org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:140)\n\tat org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)\n\tat org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:101)\n\tat org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:53)\n\tat org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:161)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:139)\n\tat org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:554)\n\tat org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1529)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:557)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:750)\nCaused by: java.io.IOException: Failed to connect to pluto-mig-adhoc-c-cimage-c69c6e1d-k9nl.c.fks-fdp-galaxy.internal/10.116.16.52:7337\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:294)\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:214)\n\tat org.apache.spark.network.shuffle.ExternalBlockStoreClient.lambda$fetchBlocks$0(ExternalBlockStoreClient.java:128)\n\tat org.apache.spark.network.shuffle.RetryingBlockTransferor.transferAllOutstanding(RetryingBlockTransferor.java:173)\n\tat org.apache.spark.network.shuffle.RetryingBlockTransferor.lambda$initiateRetry$0(RetryingBlockTransferor.java:206)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\n\t... 1 more\nCaused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: pluto-mig-adhoc-c-cimage-c69c6e1d-k9nl.c.fks-fdp-galaxy.internal/10.116.16.52:7337\nCaused by: java.net.ConnectException: Connection refused\n\tat sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)\n\tat sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)\n\tat io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)\n\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\n\tat java.lang.Thread.run(Thread.java:750)\n",
+    "iteration" : 3,
+    "name" : "q23a"
+  }, {
+    "durationMs" : 3763341,
+    "iteration" : 3,
+    "name" : "q23b"
+  }, {
+    "durationMs" : 835731,
+    "iteration" : 3,
+    "name" : "q24a"
+  }, {
+    "durationMs" : 164581,
+    "iteration" : 3,
+    "name" : "q24b"
+  }, {
+    "durationMs" : 114481,
+    "iteration" : 3,
+    "name" : "q25"
+  }, {
+    "durationMs" : 7165,
+    "iteration" : 3,
+    "name" : "q26"
+  }, {
+    "durationMs" : 264694,
+    "iteration" : 3,
+    "name" : "q27"
+  }, {
+    "durationMs" : 1296932,
+    "iteration" : 3,
+    "name" : "q28"
+  }, {
+    "durationMs" : 152023,
+    "iteration" : 3,
+    "name" : "q29"
+  }, {
+    "durationMs" : 185579,
+    "iteration" : 3,
+    "name" : "q3"
+  }, {
+    "durationMs" : 74422,
+    "iteration" : 3,
+    "name" : "q30"
+  }, {
+    "durationMs" : 959802,
+    "iteration" : 3,
+    "name" : "q31"
+  }, {
+    "durationMs" : 15901,
+    "iteration" : 3,
+    "name" : "q32"
+  }, {
+    "durationMs" : 1191180,
+    "iteration" : 3,
+    "name" : "q33"
+  }, {
+    "durationMs" : 72930,
+    "iteration" : 3,
+    "name" : "q34"
+  }, {
+    "durationMs" : 324681,
+    "iteration" : 3,
+    "name" : "q35"
+  }, {
+    "durationMs" : 372372,
+    "iteration" : 3,
+    "name" : "q36"
+  }, {
+    "durationMs" : 12572,
+    "iteration" : 3,
+    "name" : "q37"
+  }, {
+    "durationMs" : 448522,
+    "iteration" : 3,
+    "name" : "q38"
+  }, {
+    "durationMs" : 532269,
+    "iteration" : 3,
+    "name" : "q39a"
+  }, {
+    "durationMs" : 12255,
+    "iteration" : 3,
+    "name" : "q39b"
+  }, {
+    "durationMs" : 255178,
+    "iteration" : 3,
+    "name" : "q4"
+  }, {
+    "durationMs" : 4296,
+    "iteration" : 3,
+    "name" : "q40"
+  }, {
+    "durationMs" : 666,
+    "iteration" : 3,
+    "name" : "q41"
+  }, {
+    "durationMs" : 163643,
+    "iteration" : 3,
+    "name" : "q42"
+  }, {
+    "durationMs" : 213143,
+    "iteration" : 3,
+    "name" : "q43"
+  }, {
+    "durationMs" : 3498,
+    "iteration" : 3,
+    "name" : "q44"
+  }, {
+    "durationMs" : 52178,
+    "iteration" : 3,
+    "name" : "q45"
+  }, {
+    "durationMs" : 70679,
+    "iteration" : 3,
+    "name" : "q46"
+  }, {
+    "durationMs" : 461788,
+    "iteration" : 3,
+    "name" : "q47"
+  }, {
+    "durationMs" : 223520,
+    "iteration" : 3,
+    "name" : "q48"
+  }, {
+    "durationMs" : 138310,
+    "iteration" : 3,
+    "name" : "q49"
+  }, {
+    "durationMs" : 461723,
+    "iteration" : 3,
+    "name" : "q5"
+  }, {
+    "durationMs" : 563790,
+    "iteration" : 3,
+    "name" : "q50"
+  }, {
+    "durationMs" : 176519,
+    "iteration" : 3,
+    "name" : "q51"
+  }, {
+    "durationMs" : 163023,
+    "iteration" : 3,
+    "name" : "q52"
+  }, {
+    "durationMs" : 169319,
+    "iteration" : 3,
+    "name" : "q53"
+  }, {
+    "durationMs" : 429938,
+    "iteration" : 3,
+    "name" : "q54"
+  }, {
+    "durationMs" : 158433,
+    "iteration" : 3,
+    "name" : "q55"
+  }, {
+    "durationMs" : 256826,
+    "iteration" : 3,
+    "name" : "q56"
+  }, {
+    "durationMs" : 16637,
+    "iteration" : 3,
+    "name" : "q57"
+  }, {
+    "durationMs" : 251475,
+    "iteration" : 3,
+    "name" : "q58"
+  }, {
+    "durationMs" : 902466,
+    "iteration" : 3,
+    "name" : "q59"
+  }, {
+    "durationMs" : 98904,
+    "iteration" : 3,
+    "name" : "q6"
+  }, {
+    "durationMs" : 346487,
+    "iteration" : 3,
+    "name" : "q60"
+  }, {
+    "durationMs" : 77575,
+    "iteration" : 3,
+    "name" : "q61"
+  }, {
+    "durationMs" : 203584,
+    "iteration" : 3,
+    "name" : "q62"
+  }, {
+    "durationMs" : 226958,
+    "iteration" : 3,
+    "name" : "q63"
+  }, {
+    "durationMs" : 763179,
+    "iteration" : 3,
+    "name" : "q64"
+  }, {
+    "durationMs" : 905905,
+    "iteration" : 3,
+    "name" : "q65"
+  }, {
+    "durationMs" : 72240,
+    "iteration" : 3,
+    "name" : "q66"
+  }, {
+    "durationMs" : 507267,
+    "iteration" : 3,
+    "name" : "q67"
+  }, {
+    "durationMs" : 71051,
+    "iteration" : 3,
+    "name" : "q68"
+  }, {
+    "durationMs" : 322754,
+    "iteration" : 3,
+    "name" : "q69"
+  }, {
+    "durationMs" : 112199,
+    "iteration" : 3,
+    "name" : "q7"
+  }, {
+    "durationMs" : 597878,
+    "iteration" : 3,
+    "name" : "q70"
+  }, {
+    "durationMs" : 223377,
+    "iteration" : 3,
+    "name" : "q71"
+  }, {
+    "durationMs" : 74553,
+    "iteration" : 3,
+    "name" : "q72"
+  }, {
+    "durationMs" : 36721,
+    "iteration" : 3,
+    "name" : "q73"
+  }, {
+    "durationMs" : 247678,
+    "iteration" : 3,
+    "name" : "q74"
+  }, {
+    "durationMs" : 449996,
+    "iteration" : 3,
+    "name" : "q75"
+  }, {
+    "durationMs" : 140970,
+    "iteration" : 3,
+    "name" : "q76"
+  }, {
+    "durationMs" : 235808,
+    "iteration" : 3,
+    "name" : "q77"
+  }, {
+    "durationMs" : 157185,
+    "iteration" : 3,
+    "name" : "q78"
+  }, {
+    "durationMs" : 164802,
+    "iteration" : 3,
+    "name" : "q79"
+  }, {
+    "durationMs" : 304654,
+    "iteration" : 3,
+    "name" : "q8"
+  }, {
+    "durationMs" : 142517,
+    "iteration" : 3,
+    "name" : "q80"
+  }, {
+    "durationMs" : 10802,
+    "iteration" : 3,
+    "name" : "q81"
+  }, {
+    "durationMs" : 88682,
+    "iteration" : 3,
+    "name" : "q82"
+  }, {
+    "durationMs" : 51566,
+    "iteration" : 3,
+    "name" : "q83"
+  }, {
+    "durationMs" : 43856,
+    "iteration" : 3,
+    "name" : "q84"
+  }, {
+    "durationMs" : 142652,
+    "iteration" : 3,
+    "name" : "q85"
+  }, {
+    "durationMs" : 84477,
+    "iteration" : 3,
+    "name" : "q86"
+  }, {
+    "durationMs" : 176991,
+    "iteration" : 3,
+    "name" : "q87"
+  }, {
+    "durationMs" : 946738,
+    "iteration" : 3,
+    "name" : "q88"
+  }, {
+    "durationMs" : 109705,
+    "iteration" : 3,
+    "name" : "q89"
+  }, {
+    "durationMs" : 1931426,
+    "iteration" : 3,
+    "name" : "q9"
+  }, {
+    "durationMs" : 80042,
+    "iteration" : 3,
+    "name" : "q90"
+  }, {
+    "durationMs" : 6651,
+    "iteration" : 3,
+    "name" : "q91"
+  }, {
+    "durationMs" : 84117,
+    "iteration" : 3,
+    "name" : "q92"
+  }, {
+    "durationMs" : 41219,
+    "iteration" : 3,
+    "name" : "q93"
+  }, {
+    "durationMs" : 543214,
+    "iteration" : 3,
+    "name" : "q94"
+  }, {
+    "durationMs" : 125459,
+    "iteration" : 3,
+    "name" : "q95"
+  }, {
+    "durationMs" : 128483,
+    "iteration" : 3,
+    "name" : "q96"
+  }, {
+    "durationMs" : 136186,
+    "iteration" : 3,
+    "name" : "q97"
+  }, {
+    "durationMs" : 140691,
+    "iteration" : 3,
+    "name" : "q98"
+  }, {
+    "durationMs" : 15229,
+    "iteration" : 3,
+    "name" : "q99"
+  } ],
+  "sparkEnvInfo" : {
+    "classpathEntries" : {
+      "//fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar" : "System Classpath",
+      "/etc/hadoop/conf/" : "System Classpath",
+      "/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/conf/" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/HikariCP-2.5.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/JLargeArrays-1.5.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/JTransforms-3.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/RoaringBitmap-0.9.38.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/ST4-4.0.4.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/activation-1.1.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/aircompressor-0.21.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/algebra_2.12-2.0.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/annotations-17.0.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/antlr-runtime-3.5.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/antlr4-runtime-4.9.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/aopalliance-repackaged-2.6.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/arpack-3.0.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/arpack_combined_all-0.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/arrow-format-11.0.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/arrow-memory-core-11.0.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/arrow-memory-netty-11.0.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/arrow-vector-11.0.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/audience-annotations-0.5.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/avro-1.11.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/avro-ipc-1.11.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/avro-mapred-1.11.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/blas-3.0.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/bonecp-0.8.0.RELEASE.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/breeze-macros_2.12-2.1.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/breeze_2.12-2.1.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/cats-kernel_2.12-2.1.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/chill-java-0.10.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/chill_2.12-0.10.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-cli-1.5.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-codec-1.15.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-collections-3.2.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-collections4-4.4.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-compiler-3.1.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-compress-1.22.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-crypto-1.1.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-dbcp-1.4.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-io-2.11.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-lang-2.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-lang3-3.12.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-logging-1.1.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-math3-3.6.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-pool-1.5.4.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/commons-text-1.10.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/compress-lzf-1.1.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/curator-client-2.13.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/curator-framework-2.13.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/curator-recipes-2.13.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/datanucleus-api-jdo-4.2.4.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/datanucleus-core-4.1.17.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/datanucleus-rdbms-4.1.19.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/delta-core_2.12-2.4.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/derby-10.14.2.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/dropwizard-metrics-hadoop-metrics2-reporter-0.1.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/fdp-deps-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/flatbuffers-java-1.12.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/gcs-connector-hadoop3-2.2.7-shaded.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/gson-2.2.4.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/guava-14.0.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hadoop-client-api-3.2.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hadoop-client-runtime-3.2.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hadoop-yarn-server-web-proxy-3.2.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-beeline-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-cli-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-common-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-exec-2.3.9-core.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-jdbc-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-llap-common-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-metastore-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-serde-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-service-rpc-3.1.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-shims-0.23-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-shims-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-shims-common-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-shims-scheduler-2.3.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hive-storage-api-2.8.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hk2-api-2.6.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hk2-locator-2.6.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hk2-utils-2.6.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/htrace-core4-4.1.0-incubating.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/httpclient-4.4.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/httpcore-4.4.16.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/hudi-spark3.4-bundle_2.12-0.14.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/istack-commons-runtime-3.0.8.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/ivy-2.5.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-annotations-2.14.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-core-2.14.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-core-asl-1.9.13.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-databind-2.14.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-datatype-jsr310-2.14.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-mapper-asl-1.9.13.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jackson-module-scala_2.12-2.14.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jakarta.annotation-api-1.3.5.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jakarta.inject-2.6.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jakarta.servlet-api-4.0.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jakarta.validation-api-2.0.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jakarta.ws.rs-api-2.1.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jakarta.xml.bind-api-2.3.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/janino-3.1.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/javassist-3.25.0-GA.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/javax.jdo-3.2.0-m3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/javolution-5.5.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jaxb-runtime-2.3.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jcl-over-slf4j-2.0.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jdo-api-3.0.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jersey-client-2.36.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jersey-common-2.36.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jersey-container-servlet-2.36.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jersey-container-servlet-core-2.36.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jersey-hk2-2.36.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jersey-server-2.36.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jline-2.14.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/joda-time-2.12.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jodd-core-3.5.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jpam-1.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/json-1.8.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/json4s-ast_2.12-3.7.0-M11.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/json4s-core_2.12-3.7.0-M11.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/json4s-jackson_2.12-3.7.0-M11.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/json4s-scalap_2.12-3.7.0-M11.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jsr305-3.0.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jta-1.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/jul-to-slf4j-2.0.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/kryo-shaded-4.0.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/lapack-3.0.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/leveldbjni-all-1.8.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/libfb303-0.9.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/libthrift-0.12.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/log4j-1.2-api-2.19.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/log4j-api-2.19.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/log4j-core-2.19.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/log4j-slf4j2-impl-2.19.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/lz4-java-1.8.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/metrics-core-4.2.15.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/metrics-graphite-4.2.15.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/metrics-jmx-4.2.15.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/metrics-json-4.2.15.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/metrics-jvm-4.2.15.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/minlog-1.3.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-all-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-buffer-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-codec-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-codec-http-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-codec-http2-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-codec-socks-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-common-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-handler-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-handler-proxy-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-resolver-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-classes-epoll-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-classes-kqueue-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-native-epoll-4.1.87.Final-linux-aarch_64.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-native-epoll-4.1.87.Final-linux-x86_64.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-native-kqueue-4.1.87.Final-osx-aarch_64.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-native-kqueue-4.1.87.Final-osx-x86_64.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/netty-transport-native-unix-common-4.1.87.Final.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/objenesis-3.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/opencsv-2.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/orc-core-1.8.5-shaded-protobuf.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/orc-mapreduce-1.8.5-shaded-protobuf.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/orc-shims-1.8.5.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/oro-2.0.8.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/osgi-resource-locator-1.0.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/paranamer-2.8.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/parquet-column-1.12.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/parquet-common-1.12.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/parquet-encoding-1.12.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/parquet-format-structures-1.12.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/parquet-hadoop-1.12.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/parquet-jackson-1.12.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/pickle-1.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/protobuf-java-2.5.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/py4j-0.10.9.7.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/rocksdbjni-7.9.2.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/scala-collection-compat_2.12-2.7.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/scala-compiler-2.12.17.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/scala-library-2.12.17.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/scala-parser-combinators_2.12-2.1.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/scala-reflect-2.12.17.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/scala-xml_2.12-2.1.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/shims-0.9.38.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/slf4j-api-2.0.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/snappy-java-1.1.10.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-catalyst_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-core_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-graphx_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-hive-thriftserver_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-hive_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-kvstore_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-launcher_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-mllib-local_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-mllib_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-network-common_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-network-shuffle_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-repl_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-sketch_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-sql_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-streaming_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-tags_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-unsafe_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spark-yarn_2.12-3.4.1.fdp.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spire-macros_2.12-0.17.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spire-platform_2.12-0.17.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spire-util_2.12-0.17.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/spire_2.12-0.17.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/stax-api-1.0.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/stream-2.9.6.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/super-csv-2.2.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/threeten-extra-1.7.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/tink-1.7.0.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/transaction-api-1.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/univocity-parsers-2.9.1.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/xbean-asm9-shaded-4.22.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/xz-1.9.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/zookeeper-3.6.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/zookeeper-jute-3.6.3.jar" : "System Classpath",
+      "/var/lib/fk-pf-spark3-4/jars/zstd-jni-1.5.2-5.jar" : "System Classpath",
+      "gs" : "System Classpath"
+    },
+    "hadoopProps" : {
+      "adl.feature.ownerandgroup.enableupn" : "false",
+      "adl.http.timeout" : "-1",
+      "ambari.hive.db.schema.name" : "hive",
+      "datanucleus.cache.level2.type" : "none",
+      "datanucleus.connectionPool.maxPoolSize" : "10",
+      "datanucleus.schema.autoCreateTables" : "true",
+      "dfs.blocksize" : "536870912",
+      "dfs.client.failover.proxy.provider.pluto" : "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider",
+      "dfs.client.failover.random.order" : "true",
+      "dfs.client.read.shortcircuit" : "true",
+      "dfs.client.read.shortcircuit.streams.cache.size" : "4096",
+      "dfs.domain.socket.path" : "/var/lib/hadoop-hdfs/dn_socket",
+      "dfs.ha.fencing.ssh.connect-timeout" : "30000",
+      "dfs.ha.namenodes.pluto" : "nn1,nn2",
+      "dfs.namenode.http-address.pluto.nn1" : "fks-fdp-galaxy-pluto-nn-0001.c.fks-fdp-galaxy.internal:50070",
+      "dfs.namenode.http-address.pluto.nn2" : "fks-fdp-galaxy-pluto-nn-0002.c.fks-fdp-galaxy.internal:50070",
+      "dfs.namenode.https-address.pluto.nn1" : "fks-fdp-galaxy-pluto-nn-0001.c.fks-fdp-galaxy.internal:50470",
+      "dfs.namenode.https-address.pluto.nn2" : "fks-fdp-galaxy-pluto-nn-0002.c.fks-fdp-galaxy.internal:50470",
+      "dfs.namenode.rpc-address.pluto.nn1" : "fks-fdp-galaxy-pluto-nn-0001.c.fks-fdp-galaxy.internal:8020",
+      "dfs.namenode.rpc-address.pluto.nn2" : "fks-fdp-galaxy-pluto-nn-0002.c.fks-fdp-galaxy.internal:8020",
+      "dfs.nameservices" : "pluto",
+      "dfs.replication" : "3",
+      "fdp.default.tier" : "Regular",
+      "fdp.ironbank.url" : "http://console.fdp-ironbank-prod.fkcloud.in/",
+      "fdp.orgqueue.cache.expire" : "300",
+      "fdp.orgqueue.cache.size" : "100",
+      "fdp.orgqueue.defaultQueue" : "adhoc",
+      "fdp.orgqueue.gringotts.clientId" : "QAAS",
+      "fdp.orgqueue.gringotts.clientSecret" : "*********(redacted)",
+      "fdp.orgqueue.gringotts.url" : "http://gringotts.fdp-gringotts-prod.fkcloud.in/billingOrg/user",
+      "fdp.orgqueue.queueNotFound.errorMessage" : "Queue mapping not found",
+      "fdp.orgqueue.validInitiators" : "BADGER,QAAS,LQE,SUPERBI",
+      "fdp.tier.expression" : "Regular",
+      "fdp.tier.lqe.lock.wait.time.secs" : "30",
+      "fdp.tier.lqe.max.sessions" : "3",
+      "file.blocksize" : "67108864",
+      "file.bytes-per-checksum" : "512",
+      "file.client-write-packet-size" : "65536",
+      "file.replication" : "1",
+      "file.stream-buffer-size" : "4096",
+      "fs.AbstractFileSystem.abfs.impl" : "org.apache.hadoop.fs.azurebfs.Abfs",
+      "fs.AbstractFileSystem.abfss.impl" : "org.apache.hadoop.fs.azurebfs.Abfss",
+      "fs.AbstractFileSystem.adl.impl" : "org.apache.hadoop.fs.adl.Adl",
+      "fs.AbstractFileSystem.file.impl" : "org.apache.hadoop.fs.local.LocalFs",
+      "fs.AbstractFileSystem.ftp.impl" : "org.apache.hadoop.fs.ftp.FtpFs",
+      "fs.AbstractFileSystem.gs.impl" : "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS",
+      "fs.AbstractFileSystem.har.impl" : "org.apache.hadoop.fs.HarFs",
+      "fs.AbstractFileSystem.hdfs.impl" : "org.apache.hadoop.fs.Hdfs",
+      "fs.AbstractFileSystem.s3a.impl" : "org.apache.hadoop.fs.s3a.S3A",
+      "fs.AbstractFileSystem.swebhdfs.impl" : "org.apache.hadoop.fs.SWebHdfs",
+      "fs.AbstractFileSystem.viewfs.impl" : "org.apache.hadoop.fs.viewfs.ViewFs",
+      "fs.AbstractFileSystem.wasb.impl" : "org.apache.hadoop.fs.azure.Wasb",
+      "fs.AbstractFileSystem.wasbs.impl" : "org.apache.hadoop.fs.azure.Wasbs",
+      "fs.AbstractFileSystem.webhdfs.impl" : "org.apache.hadoop.fs.WebHdfs",
+      "fs.abfs.impl" : "org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem",
+      "fs.abfss.impl" : "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem",
+      "fs.adl.impl" : "org.apache.hadoop.fs.adl.AdlFileSystem",
+      "fs.adl.oauth2.access.token.provider.type" : "*********(redacted)",
+      "fs.automatic.close" : "true",
+      "fs.azure.authorization" : "false",
+      "fs.azure.authorization.caching.enable" : "true",
+      "fs.azure.local.sas.key.mode" : "false",
+      "fs.azure.sas.expiry.period" : "90d",
+      "fs.azure.saskey.usecontainersaskeyforallaccess" : "true",
+      "fs.azure.secure.mode" : "false",
+      "fs.azure.user.agent.prefix" : "unknown",
+      "fs.client.resolve.remote.symlinks" : "true",
+      "fs.client.resolve.topology.enabled" : "false",
+      "fs.defaultFS" : "hdfs://pluto",
+      "fs.df.interval" : "60000",
+      "fs.du.interval" : "600000",
+      "fs.ftp.data.connection.mode" : "ACTIVE_LOCAL_DATA_CONNECTION_MODE",
+      "fs.ftp.host" : "0.0.0.0",
+      "fs.ftp.host.port" : "21",
+      "fs.ftp.impl" : "org.apache.hadoop.fs.ftp.FTPFileSystem",
+      "fs.ftp.transfer.mode" : "BLOCK_TRANSFER_MODE",
+      "fs.gs.auth.service.account.enable" : "true",
+      "fs.gs.batch.threads" : "60",
+      "fs.gs.impl" : "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem",
+      "fs.gs.max.requests.per.batch" : "300",
+      "fs.gs.reported.permissions" : "777",
+      "fs.har.impl.disable.cache" : "true",
+      "fs.permissions.umask-mode" : "022",
+      "fs.s3a.assumed.role.credentials.provider" : "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
+      "fs.s3a.assumed.role.session.duration" : "30m",
+      "fs.s3a.assumed.role.sts.endpoint.region" : "us-west-1",
+      "fs.s3a.attempts.maximum" : "20",
+      "fs.s3a.block.size" : "32M",
+      "fs.s3a.buffer.dir" : "${hadoop.tmp.dir}/s3a",
+      "fs.s3a.change.detection.mode" : "server",
+      "fs.s3a.change.detection.source" : "etag",
+      "fs.s3a.change.detection.version.required" : "true",
+      "fs.s3a.committer.magic.enabled" : "false",
+      "fs.s3a.committer.name" : "file",
+      "fs.s3a.committer.staging.abort.pending.uploads" : "true",
+      "fs.s3a.committer.staging.conflict-mode" : "fail",
+      "fs.s3a.committer.staging.tmp.path" : "tmp/staging",
+      "fs.s3a.committer.staging.unique-filenames" : "true",
+      "fs.s3a.committer.threads" : "8",
+      "fs.s3a.connection.establish.timeout" : "5000",
+      "fs.s3a.connection.maximum" : "15",
+      "fs.s3a.connection.ssl.enabled" : "true",
+      "fs.s3a.connection.timeout" : "200000",
+      "fs.s3a.downgrade.syncable.exceptions" : "true",
+      "fs.s3a.endpoint" : "s3.amazonaws.com",
+      "fs.s3a.etag.checksum.enabled" : "false",
+      "fs.s3a.fast.upload.active.blocks" : "4",
+      "fs.s3a.fast.upload.buffer" : "disk",
+      "fs.s3a.impl" : "org.apache.hadoop.fs.s3a.S3AFileSystem",
+      "fs.s3a.list.version" : "2",
+      "fs.s3a.max.total.tasks" : "5",
+      "fs.s3a.metadatastore.authoritative" : "false",
+      "fs.s3a.metadatastore.impl" : "org.apache.hadoop.fs.s3a.s3guard.NullMetadataStore",
+      "fs.s3a.multiobjectdelete.enable" : "true",
+      "fs.s3a.multipart.purge" : "false",
+      "fs.s3a.multipart.purge.age" : "86400",
+      "fs.s3a.multipart.size" : "100M",
+      "fs.s3a.multipart.threshold" : "2147483647",
+      "fs.s3a.paging.maximum" : "5000",
+      "fs.s3a.path.style.access" : "false",
+      "fs.s3a.readahead.range" : "64K",
+      "fs.s3a.retry.interval" : "500ms",
+      "fs.s3a.retry.limit" : "${fs.s3a.attempts.maximum}",
+      "fs.s3a.retry.throttle.interval" : "1000ms",
+      "fs.s3a.retry.throttle.limit" : "${fs.s3a.attempts.maximum}",
+      "fs.s3a.s3guard.cli.prune.age" : "86400000",
+      "fs.s3a.s3guard.ddb.background.sleep" : "25ms",
+      "fs.s3a.s3guard.ddb.max.retries" : "9",
+      "fs.s3a.s3guard.ddb.table.capacity.read" : "500",
+      "fs.s3a.s3guard.ddb.table.capacity.write" : "100",
+      "fs.s3a.s3guard.ddb.table.create" : "false",
+      "fs.s3a.s3guard.ddb.throttle.retry.interval" : "100ms",
+      "fs.s3a.socket.recv.buffer" : "8192",
+      "fs.s3a.socket.send.buffer" : "8192",
+      "fs.s3a.threads.keepalivetime" : "60",
+      "fs.s3a.threads.max" : "10",
+      "fs.swift.impl" : "org.apache.hadoop.fs.swift.snative.SwiftNativeFileSystem",
+      "fs.trash.checkpoint.interval" : "0",
+      "fs.trash.interval" : "0",
+      "fs.viewfs.rename.strategy" : "SAME_MOUNTPOINT",
+      "fs.wasb.impl" : "org.apache.hadoop.fs.azure.NativeAzureFileSystem",
+      "fs.wasbs.impl" : "org.apache.hadoop.fs.azure.NativeAzureFileSystem$Secure",
+      "ftp.blocksize" : "67108864",
+      "ftp.bytes-per-checksum" : "512",
+      "ftp.client-write-packet-size" : "65536",
+      "ftp.replication" : "3",
+      "ftp.stream-buffer-size" : "4096",
+      "google.cloud.auth.service.account.enable" : "true",
+      "ha.failover-controller.cli-check.rpc-timeout.ms" : "20000",
+      "ha.failover-controller.graceful-fence.connection.retries" : "1",
+      "ha.failover-controller.graceful-fence.rpc-timeout.ms" : "5000",
+      "ha.failover-controller.new-active.rpc-timeout.ms" : "60000",
+      "ha.health-monitor.check-interval.ms" : "1000",
+      "ha.health-monitor.connect-retry-interval.ms" : "1000",
+      "ha.health-monitor.rpc-timeout.ms" : "45000",
+      "ha.health-monitor.sleep-after-disconnect.ms" : "1000",
+      "ha.zookeeper.acl" : "world:anyone:rwcda",
+      "ha.zookeeper.parent-znode" : "/hadoop-ha",
+      "ha.zookeeper.session-timeout.ms" : "10000",
+      "hadoop.caller.context.enabled" : "false",
+      "hadoop.caller.context.max.size" : "128",
+      "hadoop.caller.context.signature.max.size" : "40",
+      "hadoop.common.configuration.version" : "3.0.0",
+      "hadoop.http.authentication.kerberos.keytab" : "${user.home}/hadoop.keytab",
+      "hadoop.http.authentication.kerberos.principal" : "HTTP/_HOST@LOCALHOST",
+      "hadoop.http.authentication.signature.secret.file" : "*********(redacted)",
+      "hadoop.http.authentication.simple.anonymous.allowed" : "true",
+      "hadoop.http.authentication.token.validity" : "*********(redacted)",
+      "hadoop.http.authentication.type" : "simple",
+      "hadoop.http.cross-origin.allowed-headers" : "X-Requested-With,Content-Type,Accept,Origin",
+      "hadoop.http.cross-origin.allowed-methods" : "GET,POST,HEAD",
+      "hadoop.http.cross-origin.allowed-origins" : "*",
+      "hadoop.http.cross-origin.enabled" : "false",
+      "hadoop.http.cross-origin.max-age" : "1800",
+      "hadoop.http.filter.initializers" : "org.apache.hadoop.http.lib.StaticUserWebFilter",
+      "hadoop.http.logs.enabled" : "true",
+      "hadoop.http.staticuser.user" : "dr.who",
+      "hadoop.jetty.logs.serve.aliases" : "true",
+      "hadoop.kerberos.kinit.command" : "kinit",
+      "hadoop.kerberos.min.seconds.before.relogin" : "60",
+      "hadoop.proxyuser.hive.groups" : "*",
+      "hadoop.proxyuser.hive.hosts" : "*",
+      "hadoop.registry.jaas.context" : "Client",
+      "hadoop.registry.secure" : "false",
+      "hadoop.registry.system.acls" : "sasl:yarn@, sasl:mapred@, sasl:hdfs@",
+      "hadoop.registry.zk.connection.timeout.ms" : "15000",
+      "hadoop.registry.zk.quorum" : "localhost:2181",
+      "hadoop.registry.zk.retry.ceiling.ms" : "60000",
+      "hadoop.registry.zk.retry.interval.ms" : "1000",
+      "hadoop.registry.zk.retry.times" : "5",
+      "hadoop.registry.zk.root" : "/registry",
+      "hadoop.registry.zk.session.timeout.ms" : "60000",
+      "hadoop.rpc.protection" : "authentication",
+      "hadoop.rpc.socket.factory.class.default" : "org.apache.hadoop.net.StandardSocketFactory",
+      "hadoop.security.auth_to_local" : "DEFAULT",
+      "hadoop.security.auth_to_local.mechanism" : "hadoop",
+      "hadoop.security.authentication" : "simple",
+      "hadoop.security.authorization" : "false",
+      "hadoop.security.credential.clear-text-fallback" : "true",
+      "hadoop.security.crypto.buffer.size" : "8192",
+      "hadoop.security.crypto.cipher.suite" : "AES/CTR/NoPadding",
+      "hadoop.security.crypto.codec.classes.aes.ctr.nopadding" : "org.apache.hadoop.crypto.OpensslAesCtrCryptoCodec, org.apache.hadoop.crypto.JceAesCtrCryptoCodec",
+      "hadoop.security.dns.log-slow-lookups.enabled" : "false",
+      "hadoop.security.dns.log-slow-lookups.threshold.ms" : "1000",
+      "hadoop.security.group.mapping" : "org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback",
+      "hadoop.security.group.mapping.ldap.connection.timeout.ms" : "60000",
+      "hadoop.security.group.mapping.ldap.conversion.rule" : "none",
+      "hadoop.security.group.mapping.ldap.directory.search.timeout" : "10000",
+      "hadoop.security.group.mapping.ldap.num.attempts" : "3",
+      "hadoop.security.group.mapping.ldap.num.attempts.before.failover" : "3",
+      "hadoop.security.group.mapping.ldap.posix.attr.gid.name" : "gidNumber",
+      "hadoop.security.group.mapping.ldap.posix.attr.uid.name" : "uidNumber",
+      "hadoop.security.group.mapping.ldap.read.timeout.ms" : "60000",
+      "hadoop.security.group.mapping.ldap.search.attr.group.name" : "cn",
+      "hadoop.security.group.mapping.ldap.search.attr.member" : "member",
+      "hadoop.security.group.mapping.ldap.search.filter.group" : "(objectClass=group)",
+      "hadoop.security.group.mapping.ldap.search.filter.user" : "(&(objectClass=user)(sAMAccountName={0}))",
+      "hadoop.security.group.mapping.ldap.search.group.hierarchy.levels" : "0",
+      "hadoop.security.group.mapping.ldap.ssl" : "false",
+      "hadoop.security.group.mapping.providers.combined" : "true",
+      "hadoop.security.groups.cache.background.reload" : "false",
+      "hadoop.security.groups.cache.background.reload.threads" : "3",
+      "hadoop.security.groups.cache.secs" : "300",
+      "hadoop.security.groups.cache.warn.after.ms" : "5000",
+      "hadoop.security.groups.negative-cache.secs" : "30",
+      "hadoop.security.groups.shell.command.timeout" : "0s",
+      "hadoop.security.instrumentation.requires.admin" : "false",
+      "hadoop.security.java.secure.random.algorithm" : "SHA1PRNG",
+      "hadoop.security.key.default.bitlength" : "128",
+      "hadoop.security.key.default.cipher" : "AES/CTR/NoPadding",
+      "hadoop.security.kms.client.authentication.retry-count" : "1",
+      "hadoop.security.kms.client.encrypted.key.cache.expiry" : "43200000",
+      "hadoop.security.kms.client.encrypted.key.cache.low-watermark" : "0.3f",
+      "hadoop.security.kms.client.encrypted.key.cache.num.refill.threads" : "2",
+      "hadoop.security.kms.client.encrypted.key.cache.size" : "500",
+      "hadoop.security.kms.client.failover.sleep.base.millis" : "100",
+      "hadoop.security.kms.client.failover.sleep.max.millis" : "2000",
+      "hadoop.security.kms.client.timeout" : "60",
+      "hadoop.security.random.device.file.path" : "/dev/urandom",
+      "hadoop.security.sensitive-config-keys" : "*********(redacted)",
+      "hadoop.security.uid.cache.secs" : "14400",
+      "hadoop.service.shutdown.timeout" : "30s",
+      "hadoop.shell.missing.defaultFs.warning" : "false",
+      "hadoop.shell.safely.delete.limit.num.files" : "100",
+      "hadoop.ssl.client.conf" : "ssl-client.xml",
+      "hadoop.ssl.enabled" : "false",
+      "hadoop.ssl.enabled.protocols" : "TLSv1,SSLv2Hello,TLSv1.1,TLSv1.2",
+      "hadoop.ssl.hostname.verifier" : "DEFAULT",
+      "hadoop.ssl.keystores.factory.class" : "org.apache.hadoop.security.ssl.FileBasedKeyStoresFactory",
+      "hadoop.ssl.require.client.cert" : "false",
+      "hadoop.ssl.server.conf" : "ssl-server.xml",
+      "hadoop.system.tags" : "YARN,HDFS,NAMENODE,DATANODE,REQUIRED,SECURITY,KERBEROS,PERFORMANCE,CLIENT\n      ,SERVER,DEBUG,DEPRECATED,COMMON,OPTIONAL",
+      "hadoop.tags.system" : "YARN,HDFS,NAMENODE,DATANODE,REQUIRED,SECURITY,KERBEROS,PERFORMANCE,CLIENT\n      ,SERVER,DEBUG,DEPRECATED,COMMON,OPTIONAL",
+      "hadoop.tmp.dir" : "/tmp/hadoop-${user.name}",
+      "hadoop.user.group.static.mapping.overrides" : "dr.who=;",
+      "hadoop.util.hash.type" : "murmur",
+      "hadoop.workaround.non.threadsafe.getpwuid" : "true",
+      "hadoop.zk.acl" : "world:anyone:rwcda",
+      "hadoop.zk.num-retries" : "1000",
+      "hadoop.zk.retry-interval-ms" : "1000",
+      "hadoop.zk.timeout-ms" : "10000",
+      "hbase.zookeeper.quorum" : "fks-fdp-galaxy-pluto-zkjn-0001.c.fks-fdp-galaxy.internal:2181,fks-fdp-galaxy-pluto-zkjn-0002.c.fks-fdp-galaxy.internal:2181,fks-fdp-galaxy-pluto-zkjn-0003.c.fks-fdp-galaxy.internal:2181",
+      "hive.auto.convert.join" : "false",
+      "hive.auto.convert.join.noconditionaltask" : "false",
+      "hive.auto.convert.join.noconditionaltask.size" : "134217728",
+      "hive.auto.convert.sortmerge.join" : "false",
+      "hive.auto.convert.sortmerge.join.noconditionaltask" : "false",
+      "hive.auto.convert.sortmerge.join.to.mapjoin" : "false",
+      "hive.cbo.enable" : "true",
+      "hive.cli.print.header" : "false",
+      "hive.cluster.delegation.token.store.class" : "*********(redacted)",
+      "hive.cluster.delegation.token.store.zookeeper.connectString" : "*********(redacted)",
+      "hive.cluster.delegation.token.store.zookeeper.znode" : "*********(redacted)",
+      "hive.compactor.abortedtxn.threshold" : "1000",
+      "hive.compactor.check.interval" : "300L",
+      "hive.compactor.delta.num.threshold" : "10",
+      "hive.compactor.delta.pct.threshold" : "0.1f",
+      "hive.compactor.initiator.on" : "false",
+      "hive.compactor.worker.threads" : "0",
+      "hive.compactor.worker.timeout" : "86400L",
+      "hive.compute.query.using.stats" : "false",
+      "hive.conf.restricted.list" : "hive.security.authenticator.manager,hive.security.authorization.manager,hive.users.in.admin.role",
+      "hive.convert.join.bucket.mapjoin.tez" : "true",
+      "hive.default.fileformat.managed" : "ORC",
+      "hive.driver.parallel.compilation" : "true",
+      "hive.enforce.bucketing" : "true",
+      "hive.enforce.sorting" : "true",
+      "hive.enforce.sortmergebucketmapjoin" : "true",
+      "hive.exec.compress.intermediate" : "true",
+      "hive.exec.compress.output" : "false",
+      "hive.exec.dynamic.partition" : "true",
+      "hive.exec.dynamic.partition.mode" : "nonstrict",
+      "hive.exec.failure.hooks" : "com.flipkart.fdp.hive.hooks.EnforceSingleQueryPostExecHook",
+      "hive.exec.max.created.files" : "100000",
+      "hive.exec.max.dynamic.partitions" : "1000000",
+      "hive.exec.max.dynamic.partitions.pernode" : "1000000",
+      "hive.exec.orc.compression.strategy" : "SPEED",
+      "hive.exec.orc.default.compress" : "ZLIB",
+      "hive.exec.orc.default.stripe.size" : "67108864",
+      "hive.exec.parallel" : "true",
+      "hive.exec.parallel.thread.number" : "8",
+      "hive.exec.post.hooks" : "org.apache.hadoop.hive.ql.hooks.LineageLogger,com.flipkart.fdp.hive.hooks.EnforceSingleQueryPostExecHook",
+      "hive.exec.pre.hooks" : "com.flipkart.fdp.hive.hooks.EnforceSingleQueryPreExecHook",
+      "hive.exec.reducers.bytes.per.reducer" : "134217728",
+      "hive.exec.reducers.max" : "250",
+      "hive.exec.scratchdir" : "gs://stage-hive-metastore-pluto/user/hiveexternaldir",
+      "hive.exec.submit.local.task.via.child" : "true",
+      "hive.exec.submitviachild" : "false",
+      "hive.execution.engine" : "tez",
+      "hive.fetch.task.aggr" : "true",
+      "hive.fetch.task.conversion" : "more",
+      "hive.fetch.task.conversion.threshold" : "1073741824",
+      "hive.fileformat.managed" : "ORC",
+      "hive.heapsize" : "2048",
+      "hive.input.format" : "org.apache.hadoop.hive.ql.io.CombineHiveInputFormat",
+      "hive.limit.optimize.enable" : "true",
+      "hive.limit.pushdown.memory.usage" : "0.2",
+      "hive.map.aggr" : "true",
+      "hive.map.aggr.hash.force.flush.memory.threshold" : "0.5",
+      "hive.map.aggr.hash.min.reduction" : "0.5",
+      "hive.map.aggr.hash.percentmemory" : "0.5",
+      "hive.mapjoin.bucket.cache.size" : "1000",
+      "hive.mapjoin.localtask.max.memory.usage" : "0.4",
+      "hive.mapjoin.optimized.hashtable" : "false",
+      "hive.mapred.reduce.tasks.speculative.execution" : "false",
+      "hive.merge.mapfiles" : "true",
+      "hive.merge.mapredfiles" : "false",
+      "hive.merge.orcfile.stripe.level" : "true",
+      "hive.merge.rcfile.block.level" : "true",
+      "hive.merge.size.per.task" : "256000000",
+      "hive.merge.smallfiles.avgsize" : "16000000",
+      "hive.merge.tezfiles" : "true",
+      "hive.metastore.authorization.storage.checks" : "false",
+      "hive.metastore.cache.pinobjtypes" : "Table,Database,Type,FieldSchema,Order",
+      "hive.metastore.client.connect.retry.delay" : "5s",
+      "hive.metastore.client.scheme.handlers" : "com.flipkart.fdp.hive.metastore.ELBSchemeHandler",
+      "hive.metastore.client.socket.timeout" : "1800s",
+      "hive.metastore.connect.retries" : "24",
+      "hive.metastore.execute.setugi" : "true",
+      "hive.metastore.failure.retries" : "24",
+      "hive.metastore.fshandler.threads" : "15",
+      "hive.metastore.kerberos.keytab.file" : "/etc/security/keytabs/hive.service.keytab",
+      "hive.metastore.kerberos.principal" : "hive/_HOST@EXAMPLE.COM",
+      "hive.metastore.limit.partition.request" : "-1",
+      "hive.metastore.metrics.enabled" : "true",
+      "hive.metastore.pre.event.listeners" : "org.apache.hadoop.hive.ql.security.authorization.AuthorizationPreEventListener",
+      "hive.metastore.sasl.enabled" : "false",
+      "hive.metastore.server.max.threads" : "100000",
+      "hive.metastore.uris" : "thrift://10.116.17.2:9083",
+      "hive.metastore.warehouse.dir" : "gs://stage-hive-metastore-pluto/apps/hive/warehouse",
+      "hive.msck.path.validation" : "ignore",
+      "hive.msck.repair.batch.size" : "70",
+      "hive.optimize.bucketmapjoin" : "true",
+      "hive.optimize.bucketmapjoin.sortedmerge" : "true",
+      "hive.optimize.constant.propagation" : "true",
+      "hive.optimize.index.filter" : "true",
+      "hive.optimize.mapjoin.mapreduce" : "true",
+      "hive.optimize.metadataonly" : "true",
+      "hive.optimize.null.scan" : "true",
+      "hive.optimize.reducededuplication" : "true",
+      "hive.optimize.reducededuplication.min.reducer" : "4",
+      "hive.optimize.sort.dynamic.partition" : "true",
+      "hive.orc.compute.splits.num.threads" : "10",
+      "hive.orc.splits.include.file.footer" : "false",
+      "hive.prewarm.enabled" : "false",
+      "hive.prewarm.numcontainers" : "10",
+      "hive.querylog.enable.plan.progress" : "false",
+      "hive.security.authenticator.manager" : "org.apache.hadoop.hive.ql.security.ProxyUserAuthenticator",
+      "hive.security.authorization.enabled" : "false",
+      "hive.security.authorization.manager" : "org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdConfOnlyAuthorizerFactory",
+      "hive.security.authorization.sqlstd.confwhitelist.append" : "|initiator.*|job.*|mapred.*|badger.*|azkaban.*|tez.*|dfs.*|mapreduce.*|hive.*|hbase.*|light.*|beeline.*|orc.*|fdp.*|.*impersonation.*|fs.gs.*",
+      "hive.security.metastore.authenticator.manager" : "org.apache.hadoop.hive.ql.security.HadoopDefaultMetastoreAuthenticator",
+      "hive.security.metastore.authorization.auth.reads" : "true",
+      "hive.security.metastore.authorization.manager" : "\n            org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider\n        ",
+      "hive.server2.allow.user.substitution" : "true",
+      "hive.server2.authentication" : "NONE",
+      "hive.server2.authentication.spnego.keytab" : "HTTP/_HOST@EXAMPLE.COM",
+      "hive.server2.authentication.spnego.principal" : "/etc/security/keytabs/spnego.service.keytab",
+      "hive.server2.clear.dangling.scratchdir" : "true",
+      "hive.server2.clear.dangling.scratchdir.interval" : "1800",
+      "hive.server2.enable.doAs" : "true",
+      "hive.server2.enable.impersonation" : "true",
+      "hive.server2.idle.operation.timeout" : "1d",
+      "hive.server2.idle.session.timeout" : "12h",
+      "hive.server2.logging.operation.enabled" : "true",
+      "hive.server2.logging.operation.log.location" : "${java.io.tmpdir}/${user.name}/operation_logs",
+      "hive.server2.metrics.enabled" : "true",
+      "hive.server2.session.check.interval" : "60m",
+      "hive.server2.support.dynamic.service.discovery" : "true",
+      "hive.server2.table.type.mapping" : "CLASSIC",
+      "hive.server2.tez.default.queues" : "default",
+      "hive.server2.tez.initialize.default.sessions" : "false",
+      "hive.server2.tez.sessions.per.default.queue" : "1",
+      "hive.server2.thrift.http.path" : "cliservice",
+      "hive.server2.thrift.http.port" : "10001",
+      "hive.server2.thrift.max.worker.threads" : "500",
+      "hive.server2.thrift.sasl.qop" : "auth",
+      "hive.server2.transport.mode" : "http",
+      "hive.server2.use.SSL" : "false",
+      "hive.server2.zookeeper.namespace" : "fks-fdp-galaxy-hive3-hs2-pluto",
+      "hive.session.history.enabled" : "false",
+      "hive.smbjoin.cache.rows" : "1000",
+      "hive.stats.autogather" : "true",
+      "hive.stats.dbclass" : "fs",
+      "hive.stats.fetch.column.stats" : "false",
+      "hive.stats.fetch.partition.stats" : "false",
+      "hive.strict.checks.cartesian.product" : "false",
+      "hive.strict.checks.type.safety" : "false",
+      "hive.support.concurrency" : "false",
+      "hive.support.sql11.reserved.keywords" : "true",
+      "hive.tez.auto.reducer.parallelism" : "false",
+      "hive.tez.container.size" : "2560",
+      "hive.tez.cpu.vcores" : "-1",
+      "hive.tez.dynamic.partition.pruning" : "true",
+      "hive.tez.dynamic.partition.pruning.max.data.size" : "104857600",
+      "hive.tez.dynamic.partition.pruning.max.event.size" : "1048576",
+      "hive.tez.input.format" : "org.apache.hadoop.hive.ql.io.HiveInputFormat",
+      "hive.tez.log.level" : "INFO",
+      "hive.tez.max.partition.factor" : "2.0",
+      "hive.tez.min.partition.factor" : "0.25",
+      "hive.tez.smb.number.waves" : "0.5",
+      "hive.txn.manager" : "org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager",
+      "hive.txn.max.open.batch" : "1000",
+      "hive.txn.timeout" : "300",
+      "hive.user.install.directory" : "gs://stage-hive-metastore-pluto/user/",
+      "hive.vectorized.complex.types.enabled" : "false",
+      "hive.vectorized.execution.enabled" : "true",
+      "hive.vectorized.execution.ptf.enabled" : "false",
+      "hive.vectorized.execution.reduce.enabled" : "true",
+      "hive.vectorized.groupby.checkinterval" : "4096",
+      "hive.vectorized.groupby.complex.types.enabled" : "false",
+      "hive.vectorized.groupby.flush.percent" : "0.1",
+      "hive.vectorized.groupby.maxentries" : "10000",
+      "hive.zookeeper.client.port" : "2181",
+      "hive.zookeeper.namespace" : "fks-sco-hive-pluto-zookeeper-namespace",
+      "hive.zookeeper.quorum" : "fks-fdp-galaxy-pluto-zkjn-0001.c.fks-fdp-galaxy.internal:2181,fks-fdp-galaxy-pluto-zkjn-0002.c.fks-fdp-galaxy.internal:2181,fks-fdp-galaxy-pluto-zkjn-0003.c.fks-fdp-galaxy.internal:2181",
+      "hive.zookeeper.session.timeout" : "120s",
+      "io.bytes.per.checksum" : "512",
+      "io.compression.codec.bzip2.library" : "system-native",
+      "io.compression.codec.lzo.class" : "com.hadoop.compression.lzo.LzoCodec",
+      "io.compression.codecs" : "org.apache.hadoop.io.compress.SnappyCodec,org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.BZip2Codec,com.hadoop.compression.lzo.LzoCodec,com.hadoop.compression.lzo.LzopCodec,com.hadoop.compression.fourmc.Lz4Codec,com.hadoop.compression.fourmc.Lz4MediumCodec,com.hadoop.compression.fourmc.Lz4HighCodec,com.hadoop.compression.fourmc.Lz4UltraCodec,com.hadoop.compression.fourmc.FourMcCodec,com.hadoop.compression.fourmc.FourMcMediumCodec,com.hadoop.compression.fourmc.FourMcHighCodec,com.hadoop.compression.fourmc.FourMcUltraCodec",
+      "io.erasurecode.codec.rs-legacy.rawcoders" : "rs-legacy_java",
+      "io.erasurecode.codec.rs.rawcoders" : "rs_native,rs_java",
+      "io.erasurecode.codec.xor.rawcoders" : "xor_native,xor_java",
+      "io.file.buffer.size" : "65536",
+      "io.map.index.interval" : "128",
+      "io.map.index.skip" : "0",
+      "io.mapfile.bloom.error.rate" : "0.005",
+      "io.mapfile.bloom.size" : "1048576",
+      "io.seqfile.compress.blocksize" : "1000000",
+      "io.seqfile.local.dir" : "${hadoop.tmp.dir}/io/local",
+      "io.serializations" : "org.apache.hadoop.io.serializer.WritableSerialization",
+      "io.skip.checksum.errors" : "false",
+      "ipc.client.bind.wildcard.addr" : "false",
+      "ipc.client.connect.max.retries" : "50",
+      "ipc.client.connect.max.retries.on.timeouts" : "45",
+      "ipc.client.connect.retry.interval" : "1000",
+      "ipc.client.connect.timeout" : "20000",
+      "ipc.client.connection.maxidletime" : "30000",
+      "ipc.client.fallback-to-simple-auth-allowed" : "false",
+      "ipc.client.idlethreshold" : "8000",
+      "ipc.client.kill.max" : "10",
+      "ipc.client.low-latency" : "false",
+      "ipc.client.ping" : "true",
+      "ipc.client.rpc-timeout.ms" : "0",
+      "ipc.client.tcpnodelay" : "true",
+      "ipc.maximum.data.length" : "67108864",
+      "ipc.maximum.response.length" : "134217728",
+      "ipc.ping.interval" : "60000",
+      "ipc.server.listen.queue.size" : "128",
+      "ipc.server.log.slow.rpc" : "false",
+      "ipc.server.max.connections" : "0",
+      "javax.jdo.option.ConnectionDriverName" : "com.mysql.jdbc.Driver",
+      "javax.jdo.option.ConnectionPassword" : "*********(redacted)",
+      "javax.jdo.option.ConnectionURL" : "jdbc:mysql://10.117.192.58/stage_hive_metastore?createDatabaseIfNotExist=true",
+      "javax.jdo.option.ConnectionUserName" : "stage_sco_rw",
+      "jobname.enricher.class" : "com.flipkart.fdp.hive.orgqueue.FDPJobNameEnricher",
+      "map.sort.class" : "org.apache.hadoop.util.QuickSort",
+      "net.topology.impl" : "org.apache.hadoop.net.NetworkTopology",
+      "net.topology.node.switch.mapping.impl" : "org.apache.hadoop.net.ScriptBasedMapping",
+      "net.topology.script.file.name" : "/etc/hadoop/conf/topology.py",
+      "net.topology.script.number.args" : "100",
+      "nfs.exports.allowed.hosts" : "* rw",
+      "orc.schema.evolution.case.sensitive" : "false",
+      "parser.timeoutSec" : "900",
+      "queue.enforcer.class" : "com.flipkart.fdp.hive.orgqueue.OrgQueueEnforcerForInitiator",
+      "rpc.metrics.quantile.enable" : "false",
+      "seq.io.sort.factor" : "100",
+      "seq.io.sort.mb" : "100",
+      "tfile.fs.input.buffer.size" : "262144",
+      "tfile.fs.output.buffer.size" : "262144",
+      "tfile.io.chunk.size" : "1048576",
+      "zookeeper.znode.parent" : "/hbase-unsecure"
+    },
+    "runtimeInfo" : {
+      "javaHome" : "/usr/lib/jvm/oracle-java8-jdk-amd64/jre",
+      "javaVersion" : "1.8.0_172 (Oracle Corporation)",
+      "scalaVersion" : "version 2.12.17"
+    },
+    "sparkBuildInfo" : {
+      "sparkBuildBranch" : "branch-3.4",
+      "sparkBuildDate" : "2023-11-10T09:15:23Z",
+      "sparkBuildRevision" : "43d4fad95b10e5c1e58d012048c97fed0912a64c",
+      "sparkBuildUser" : "somi.biswas",
+      "sparkBuildVersion" : "3.4.1.fdp.1"
+    },
+    "sparkProps" : {
+      "spark.app.id" : "application_1699449121496_0764",
+      "spark.app.name" : "Spark shell",
+      "spark.app.startTime" : "1702908468601",
+      "spark.app.submitTime" : "1702908464391",
+      "spark.benchmarkId" : "20231218-193622-tpcds-100gb-iceberg",
+      "spark.cleaner.ttl" : "86400",
+      "spark.delta.logStore.gs.impl" : "io.delta.storage.GCSLogStore",
+      "spark.driver.appUIAddress" : "http://fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal:4040",
+      "spark.driver.cores" : "1",
+      "spark.driver.extraClassPath" : "gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar:/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar",
+      "spark.driver.extraJavaOptions" : "-Djava.net.preferIPv6Addresses=false -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false -Denv=prod -Dcom.sun.management.jmxremote.port=0 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=0 -XX:MaxDirectMemorySize=800M -XX:MaxMetaspaceSize=256M -XX:CompressedClassSpaceSize=100M -XX:+UnlockDiagnosticVMOptions -Djob.numOfRePartitions=30",
+      "spark.driver.extraLibraryPath" : "/usr/flipkart/3.2.1-1/hadoop-hdfs/lib:/usr/flipkart/3.2.1-1/hadoop-hdfs/lib/native:/usr/lib/hadoop/lib:/usr/lib/hadoop/lib/native:/usr/lib/hadoop/lib/native/Linux-amd64-64:/usr/lib/x86_64-linux-gnu",
+      "spark.driver.host" : "fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal",
+      "spark.driver.memory" : "5120m",
+      "spark.driver.memoryOverhead" : "4096",
+      "spark.driver.port" : "37363",
+      "spark.dynamicAllocation.enabled" : "true",
+      "spark.dynamicAllocation.executorIdleTimeout" : "60s",
+      "spark.dynamicAllocation.maxExecutors" : "200",
+      "spark.eventLog.dir" : "gs://fks-fdp-infra-job-history/pluto/spark-job-history",
+      "spark.eventLog.enabled" : "true",
+      "spark.executor.cores" : "1",
+      "spark.executor.extraClassPath" : "gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar:/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar",
+      "spark.executor.extraJavaOptions" : "-Djava.net.preferIPv6Addresses=false -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false -XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2",
+      "spark.executor.extraLibraryPath" : "/usr/flipkart/3.2.1-1/hadoop-hdfs/lib:/usr/flipkart/3.2.1-1/hadoop-hdfs/lib/native:/usr/lib/hadoop/lib:/usr/lib/hadoop/lib/native:/usr/lib/hadoop/lib/native/Linux-amd64-64:/usr/lib/x86_64-linux-gnu",
+      "spark.executor.id" : "driver",
+      "spark.executor.memory" : "10240m",
+      "spark.executor.memoryOverhead" : "4096",
+      "spark.fdp.orgqueue.cache.expire" : "300",
+      "spark.fdp.orgqueue.cache.size" : "100",
+      "spark.fdp.orgqueue.defaultQueue" : "adhoc",
+      "spark.fdp.orgqueue.gringotts.clientId" : "QAAS",
+      "spark.fdp.orgqueue.gringotts.clientSecret" : "*********(redacted)",
+      "spark.fdp.orgqueue.gringotts.url" : "http://gringotts.fdp-gringotts-prod.fkcloud.in/billingOrg/user",
+      "spark.fdp.orgqueue.ironbank.url" : "http://console.fdp-ironbank-prod.fkcloud.in/queue",
+      "spark.fdp.orgqueue.queueNotFound.errorMessage" : "Queue mapping not found",
+      "spark.fdp.orgqueue.validInitiators" : "BADGER,QAAS",
+      "spark.hadoop.yarn.timeline-service.enabled" : "false",
+      "spark.history.fs.cleaner.interval" : "1d",
+      "spark.history.fs.cleaner.maxAge" : "60d",
+      "spark.history.fs.logDirectory" : "gs://fks-fdp-infra-job-history/pluto/spark-job-history",
+      "spark.history.provider" : "org.apache.spark.deploy.history.FsHistoryProvider",
+      "spark.home" : "/var/lib/fk-pf-spark3-4",
+      "spark.jars" : "",
+      "spark.master" : "yarn",
+      "spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_HOSTS" : "fks-fdp-galaxy-pluto-rm-0001.c.fks-fdp-galaxy.internal,fks-fdp-galaxy-pluto-rm-0002.c.fks-fdp-galaxy.internal",
+      "spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_URI_BASES" : "http://fks-fdp-galaxy-pluto-rm-0001.c.fks-fdp-galaxy.internal:8088/proxy/application_1699449121496_0764,http://fks-fdp-galaxy-pluto-rm-0002.c.fks-fdp-galaxy.internal:8088/proxy/application_1699449121496_0764",
+      "spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.RM_HA_URLS" : "fks-fdp-galaxy-pluto-rm-0001.c.fks-fdp-galaxy.internal:8088,fks-fdp-galaxy-pluto-rm-0002.c.fks-fdp-galaxy.internal:8088",
+      "spark.queue.enforcer.class" : "com.flipkart.fdp.orgqueue.OrgQueueEnforcerForInitiator",
+      "spark.repl.class.outputDir" : "/grid/1/spark3-4/tmp/spark-5d7005ff-d1c4-4368-9179-4f0e9b1b4cd5/repl-88c5beef-8529-4f87-a636-0074594e5c87",
+      "spark.repl.class.uri" : "spark://fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal:37363/classes",
+      "spark.repl.local.jars" : "file:///home/vanshika.yadav/20231218-193622-tpcds-100gb-iceberg-benchmarks.jar,file:///var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar",
+      "spark.scheduler.mode" : "FIFO",
+      "spark.shuffle.service.enabled" : "true",
+      "spark.shuffle.useOldFetchProtocol" : "true",
+      "spark.sql.catalog.hive_pluto" : "org.apache.iceberg.spark.SparkCatalog",
+      "spark.sql.catalog.hive_pluto.type" : "hive",
+      "spark.sql.catalog.hive_pluto.uri" : "thrift://10.116.17.2:9083",
+      "spark.sql.catalogImplementation" : "hive",
+      "spark.sql.extensions" : "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
+      "spark.sql.sources.partitionOverwriteMode" : "dynamic",
+      "spark.streaming.concurrentJobs" : "4",
+      "spark.submit.deployMode" : "client",
+      "spark.submit.pyFiles" : "",
+      "spark.ui.filters" : "org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter",
+      "spark.ui.showConsoleProgress" : "true",
+      "spark.yarn.dist.jars" : "gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar,file:/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar,gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/json-serde-1.3-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/dimlookup-hive-udf-1.0-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,file:///home/vanshika.yadav/20231218-193622-tpcds-100gb-iceberg-benchmarks.jar,file:///var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar",
+      "spark.yarn.historyServer.address" : "http://fks-fdp-galaxy-pluto-hs-0001-m.c.fks-fdp-galaxy.internal:18080",
+      "spark.yarn.jars" : "",
+      "spark.yarn.queue" : "de_adhoc",
+      "spark.yarn.report.interval" : "60s",
+      "spark.yarn.secondary.jars" : "hadoop-lzo-0.6.0.2.4.0.0-169.jar,hadoop-4mc-1.1.0.jar,json-serde-1.3-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,dimlookup-hive-udf-1.0-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,20231218-193622-tpcds-100gb-iceberg-benchmarks.jar,iceberg-spark-runtime-3.4_2.12-1.4.0.jar"
+    },
+    "systemProps" : {
+      "SPARK_SUBMIT" : "true",
+      "awt.toolkit" : "sun.awt.X11.XToolkit",
+      "com.sun.management.jmxremote.authenticate" : "false",
+      "com.sun.management.jmxremote.port" : "0",
+      "com.sun.management.jmxremote.ssl" : "false",
+      "env" : "prod",
+      "file.encoding" : "ANSI_X3.4-1968",
+      "file.encoding.pkg" : "sun.io",
+      "file.separator" : "/",
+      "java.awt.graphicsenv" : "sun.awt.X11GraphicsEnvironment",
+      "java.awt.printerjob" : "sun.print.PSPrinterJob",
+      "java.class.version" : "52.0",
+      "java.endorsed.dirs" : "/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/endorsed",
+      "java.ext.dirs" : "/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext",
+      "java.home" : "/usr/lib/jvm/oracle-java8-jdk-amd64/jre",
+      "java.io.tmpdir" : "/tmp",
+      "java.library.path" : "/usr/flipkart/3.2.1-1/hadoop-hdfs/lib:/usr/flipkart/3.2.1-1/hadoop-hdfs/lib/native:/usr/lib/hadoop/lib:/usr/lib/hadoop/lib/native:/usr/lib/hadoop/lib/native/Linux-amd64-64:/usr/lib/x86_64-linux-gnu:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib",
+      "java.rmi.server.randomIDs" : "true",
+      "java.runtime.name" : "Java(TM) SE Runtime Environment",
+      "java.runtime.version" : "1.8.0_172-b11",
+      "java.specification.name" : "Java Platform API Specification",
+      "java.specification.vendor" : "Oracle Corporation",
+      "java.specification.version" : "1.8",
+      "java.vendor" : "Oracle Corporation",
+      "java.vendor.url" : "http://java.oracle.com/",
+      "java.vendor.url.bug" : "http://bugreport.sun.com/bugreport/",
+      "java.version" : "1.8.0_172",
+      "java.vm.info" : "mixed mode",
+      "java.vm.name" : "Java HotSpot(TM) 64-Bit Server VM",
+      "java.vm.specification.name" : "Java Virtual Machine Specification",
+      "java.vm.specification.vendor" : "Oracle Corporation",
+      "java.vm.specification.version" : "1.8",
+      "java.vm.vendor" : "Oracle Corporation",
+      "java.vm.version" : "25.172-b11",
+      "jdk.reflect.useDirectMethodHandle" : "false",
+      "jetty.git.hash" : "da9a0b30691a45daf90a9f17b5defa2f1434f882",
+      "job.numOfRePartitions" : "30",
+      "line.separator" : "\n",
+      "os.arch" : "amd64",
+      "os.name" : "Linux",
+      "os.version" : "4.19.0-19-cloud-amd64",
+      "path.separator" : ":",
+      "scala.usejavacp" : "true",
+      "sun.arch.data.model" : "64",
+      "sun.boot.class.path" : "/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/oracle-java8-jdk-amd64/jre/classes",
+      "sun.boot.library.path" : "/usr/lib/jvm/oracle-java8-jdk-amd64/jre/lib/amd64",
+      "sun.cpu.endian" : "little",
+      "sun.cpu.isalist" : "",
+      "sun.io.unicode.encoding" : "UnicodeLittle",
+      "sun.java.command" : "org.apache.spark.deploy.SparkSubmit --master yarn --deploy-mode client --conf spark.sql.sources.partitionOverwriteMode=dynamic --conf spark.executor.memory=10240m --conf spark.sql.catalog.hive_pluto=org.apache.iceberg.spark.SparkCatalog --conf spark.driver.memory=5120m --conf spark.sql.catalog.hive_pluto.uri=thrift://10.116.17.2:9083 --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.sql.catalog.hive_pluto.type=hive --conf spark.benchmarkId=20231218-193622-tpcds-100gb-iceberg --conf spark.executor.extraJavaOptions=-XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2 --conf spark.delta.logStore.gs.impl=io.delta.storage.GCSLogStore --class org.apache.spark.repl.Main --name Spark shell --queue de_adhoc --jars /home/vanshika.yadav/20231218-193622-tpcds-100gb-iceberg-benchmarks.jar,/var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar spark-shell -I 20231218-193622-tpcds-100gb-iceberg_shell_init.scala",
+      "sun.java.launcher" : "SUN_STANDARD",
+      "sun.jnu.encoding" : "ANSI_X3.4-1968",
+      "sun.management.compiler" : "HotSpot 64-Bit Tiered Compilers",
+      "sun.os.patch.level" : "unknown",
+      "user.country" : "US",
+      "user.dir" : "/home/vanshika.yadav",
+      "user.home" : "/home/vanshika.yadav",
+      "user.language" : "en",
+      "user.name" : "vanshika.yadav",
+      "user.timezone" : "Asia/Kolkata"
+    }
+  }
+}

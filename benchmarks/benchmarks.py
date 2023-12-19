@@ -430,16 +430,16 @@ fi
         # Start the script
         job_cmd = (
                 f"ssh {cluster_hostname} " +
-                f"screen -S 7687.14743.benchmark -d -m bash {script_file_name}"
+                f"nohup bash {script_file_name} > ~/{self.benchmark_id}-out.txt 2>&1 &"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
 
         # Print the screen where it is running
         run_cmd(f"ssh {cluster_hostname}" +
-                f""" "screen -ls ; sleep 2; echo Files for this benchmark: ; ls {self.benchmark_id}*" """,
+                f""" "sleep 2; echo Files for this benchmark: ; ls {self.benchmark_id}*" """,
                 stream_output=True, throw_on_error=False)
-        print(f">>> Benchmark id {self.benchmark_id} started in a screen. Stdout piped into {self.output_file}. "
+        print(f">>> Benchmark id {self.benchmark_id} started in nohup. Stdout piped into {self.output_file}. "
               f"Final report will be generated on completion in {self.json_report_file}.\n")
 
     @staticmethod
