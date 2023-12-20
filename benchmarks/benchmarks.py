@@ -341,7 +341,6 @@ class Benchmark:
     def spark_submit_script_content(self, jar_path):
         return f"""
 #!/bin/bash
-jps | grep "Spark" | cut -f 1 -d ' ' |  xargs kill -9
 set -e
 {self.benchmark_spec.get_sparksubmit_cmd(jar_path)} 2>&1 | tee {self.output_file}
 """.strip()
@@ -357,7 +356,6 @@ set -e
         shell_cmd = self.benchmark_spec.get_sparkshell_cmd(jar_path, shell_init_file_name)
         return f"""
 #!/bin/bash
-jps | grep "Spark" | cut -f 1 -d ' ' |  xargs kill -9
 echo '{shell_init_file_content}' > {shell_init_file_name}
 {shell_cmd} 2>&1 | tee {self.output_file}
 touch {self.completed_file}

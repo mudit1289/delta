@@ -139,7 +139,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
         val afterDrop = System.nanoTime()
         val dropDurationMs = (afterDrop - beforeDrop) / (1000 * 1000)
         queryResults += QueryResult(s"drop-table-$tableName", Some(1), Some(dropDurationMs), errorMsg = None)
-        log(s"END took $durationMs ms: drop-table-$tableName-iteration-1")
+        log(s"END took $dropDurationMs ms: drop-table-$tableName-iteration-1")
 
         val before = System.nanoTime()
         filteredDF.write.format("hudi").

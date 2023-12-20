@@ -1,348 +1,0 @@
-Listening for transport dt_socket at address: 45669
-Setting default log level to "WARN".
-To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-23/12/15 13:18:00 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
-23/12/15 13:18:00 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
-23/12/15 13:18:00 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
-23/12/15 13:18:00 WARN Utils: Service 'SparkUI' could not bind on port 4043. Attempting port 4044.
-23/12/15 13:18:09 WARN DataStreamer: Caught exception
-java.lang.InterruptedException
-	at java.lang.Object.wait(Native Method)
-	at java.lang.Thread.join(Thread.java:1252)
-	at java.lang.Thread.join(Thread.java:1326)
-	at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:986)
-	at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:640)
-	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:810)
-23/12/15 13:18:14 WARN DataStreamer: Caught exception
-java.lang.InterruptedException
-	at java.lang.Object.wait(Native Method)
-	at java.lang.Thread.join(Thread.java:1252)
-	at java.lang.Thread.join(Thread.java:1326)
-	at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:986)
-	at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:640)
-	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:810)
-23/12/15 13:18:22 WARN DataStreamer: Caught exception
-java.lang.InterruptedException
-	at java.lang.Object.wait(Native Method)
-	at java.lang.Thread.join(Thread.java:1252)
-	at java.lang.Thread.join(Thread.java:1326)
-	at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:986)
-	at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:640)
-	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:810)
-23/12/15 13:18:25 WARN DataStreamer: Caught exception
-java.lang.InterruptedException
-	at java.lang.Object.wait(Native Method)
-	at java.lang.Thread.join(Thread.java:1252)
-	at java.lang.Thread.join(Thread.java:1326)
-	at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:986)
-	at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:640)
-	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:810)
-Spark context Web UI available at http://fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal:4044
-Spark context available as 'sc' (master = yarn, app id = application_1699449121496_0668).
-Spark session available as 'spark'.
-20231215-131558-tpcds-10gb-iceberg-load_shell_init.scala:22: warning: This catches all Throwables. If this is really intended, use `case t : Throwable` to clear this warning.
-try { benchmark.TPCDSDataLoad.main(Array[String]("--format", "ICEBERG", "--scale-in-gb", "10", "--exclude-nulls", "True", "--benchmark-path", "hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking", "--source-path", "gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb")) } catch { case t => println(t); println("FAILED"); System.exit(1) } ;;
-                                                                                                                                                                                                                                                                                                                                       ^
-2023-12-15T13:18:43.955 ================================================================================
-2023-12-15T13:18:43.955 ================================================================================
-23/12/15 13:18:44 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
-2023-12-15T13:18:44.725 Spark started with configuration:
-	spark.app.id: application_1699449121496_0668
-	spark.app.name: Spark shell
-	spark.app.startTime: 1702626479777
-	spark.app.submitTime: 1702626475658
-	spark.benchmarkId: 20231215-131558-tpcds-10gb-iceberg-load
-	spark.cleaner.ttl: 86400
-	spark.delta.logStore.gs.impl: io.delta.storage.GCSLogStore
-	spark.driver.appUIAddress: http://fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal:4044
-	spark.driver.cores: 1
-	spark.driver.extraClassPath: gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar:/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar
-	spark.driver.extraJavaOptions: -Denv=prod -Dcom.sun.management.jmxremote.port=0 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=0 -XX:MaxDirectMemorySize=800M -XX:MaxMetaspaceSize=256M -XX:CompressedClassSpaceSize=100M -XX:+UnlockDiagnosticVMOptions -Djob.numOfRePartitions=30
-	spark.driver.extraLibraryPath: /usr/flipkart/3.2.1-1/hadoop-hdfs/lib:/usr/flipkart/3.2.1-1/hadoop-hdfs/lib/native:/usr/lib/hadoop/lib:/usr/lib/hadoop/lib/native:/usr/lib/hadoop/lib/native/Linux-amd64-64:/usr/lib/x86_64-linux-gnu
-	spark.driver.host: fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal
-	spark.driver.memory: 5120m
-	spark.driver.memoryOverhead: 4096
-	spark.driver.port: 38641
-	spark.dynamicAllocation.enabled: true
-	spark.dynamicAllocation.executorIdleTimeout: 60s
-	spark.dynamicAllocation.maxExecutors: 200
-	spark.eventLog.dir: gs://fks-fdp-infra-job-history/pluto/spark-job-history
-	spark.eventLog.enabled: true
-	spark.executor.cores: 1
-	spark.executor.extraClassPath: gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar:/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar
-	spark.executor.extraJavaOptions: -XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2
-	spark.executor.extraLibraryPath: /usr/flipkart/3.2.1-1/hadoop-hdfs/lib:/usr/flipkart/3.2.1-1/hadoop-hdfs/lib/native:/usr/lib/hadoop/lib:/usr/lib/hadoop/lib/native:/usr/lib/hadoop/lib/native/Linux-amd64-64:/usr/lib/x86_64-linux-gnu
-	spark.executor.id: driver
-	spark.executor.memory: 10240m
-	spark.executor.memoryOverhead: 4096
-	spark.fdp.orgqueue.cache.expire: 300
-	spark.fdp.orgqueue.cache.size: 100
-	spark.fdp.orgqueue.defaultQueue: adhoc
-	spark.fdp.orgqueue.gringotts.clientId: QAAS
-	spark.fdp.orgqueue.gringotts.clientSecret: 423de2b0-cc97-439d-a3f9-673e76d7bbea
-	spark.fdp.orgqueue.gringotts.url: http://gringotts.fdp-gringotts-prod.fkcloud.in/billingOrg/user
-	spark.fdp.orgqueue.ironbank.url: http://console.fdp-ironbank-prod.fkcloud.in/queue
-	spark.fdp.orgqueue.queueNotFound.errorMessage: Queue mapping not found
-	spark.fdp.orgqueue.validInitiators: BADGER,QAAS
-	spark.hadoop.fs.s3.useRequesterPaysHeader: true
-	spark.hadoop.yarn.timeline-service.enabled: false
-	spark.history.fs.cleaner.interval: 1d
-	spark.history.fs.cleaner.maxAge: 60d
-	spark.history.fs.logDirectory: gs://fks-fdp-infra-job-history/pluto/spark-job-history
-	spark.history.provider: org.apache.spark.deploy.history.FsHistoryProvider
-	spark.home: /var/lib/fk-pf-spark3-4
-	spark.jars: 
-	spark.master: yarn
-	spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_HOSTS: fks-fdp-galaxy-pluto-rm-0001.c.fks-fdp-galaxy.internal,fks-fdp-galaxy-pluto-rm-0002.c.fks-fdp-galaxy.internal
-	spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_URI_BASES: http://fks-fdp-galaxy-pluto-rm-0001.c.fks-fdp-galaxy.internal:8088/proxy/application_1699449121496_0668,http://fks-fdp-galaxy-pluto-rm-0002.c.fks-fdp-galaxy.internal:8088/proxy/application_1699449121496_0668
-	spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.RM_HA_URLS: fks-fdp-galaxy-pluto-rm-0001.c.fks-fdp-galaxy.internal:8088,fks-fdp-galaxy-pluto-rm-0002.c.fks-fdp-galaxy.internal:8088
-	spark.queue.enforcer.class: com.flipkart.fdp.orgqueue.OrgQueueEnforcerForInitiator
-	spark.repl.class.outputDir: /grid/1/spark3-4/tmp/spark-7d910e09-e9e9-4eac-9a13-e82532c8f6c9/repl-0da22dea-8f49-4300-abfd-c468547cd78a
-	spark.repl.class.uri: spark://fdp-stage-azk-scheduled-executor-b5cff3b1-nftj.c.fks-sco-azkaban.internal:38641/classes
-	spark.repl.local.jars: file:///home/vanshika.yadav/20231215-131558-tpcds-10gb-iceberg-load-benchmarks.jar,file:///var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar
-	spark.shuffle.service.enabled: true
-	spark.shuffle.useOldFetchProtocol: true
-	spark.sql.catalog.hive_pluto: org.apache.iceberg.spark.SparkCatalog
-	spark.sql.catalog.hive_pluto.type: hive
-	spark.sql.catalog.hive_pluto.uri: thrift://10.116.17.2:9083
-	spark.sql.catalogImplementation: hive
-	spark.sql.extensions: org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
-	spark.sql.sources.partitionOverwriteMode: dynamic
-	spark.sql.warehouse.dir: gs://stage-hive-metastore-pluto/apps/hive/warehouse
-	spark.streaming.concurrentJobs: 4
-	spark.submit.deployMode: client
-	spark.submit.pyFiles: 
-	spark.ui.filters: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
-	spark.ui.proxyBase: 
-	spark.ui.showConsoleProgress: true
-	spark.yarn.dist.jars: gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/hadoop-lzo-0.6.0.2.4.0.0-169.jar,file:/usr/share/fk-bigfoot-4mc/lib/hadoop-4mc-1.1.0.jar,gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/json-serde-1.3-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/hive/jars/dimlookup-hive-udf-1.0-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,file:///home/vanshika.yadav/20231215-131558-tpcds-10gb-iceberg-load-benchmarks.jar,file:///var/lib/fk-pf-spark3-4/jars/iceberg-spark-runtime-3.4_2.12-1.4.0.jar
-	spark.yarn.historyServer.address: http://fks-fdp-galaxy-pluto-hs-0001-m.c.fks-fdp-galaxy.internal:18080
-	spark.yarn.jars: gs://fksdp-mhosy-3nug-2a5d-systemlibs/libraries/spark3-4/jars/*
-	spark.yarn.queue: de_adhoc
-	spark.yarn.report.interval: 60s
-	spark.yarn.secondary.jars: hadoop-lzo-0.6.0.2.4.0.0-169.jar,hadoop-4mc-1.1.0.jar,json-serde-1.3-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,dimlookup-hive-udf-1.0-SNAPSHOT-jar-with-dependencies-jackson-shaded.jar,20231215-131558-tpcds-10gb-iceberg-load-benchmarks.jar,iceberg-spark-runtime-3.4_2.12-1.4.0.jar
-
-2023-12-15T13:18:44.730 ================================================================================
-2023-12-15T13:18:44.730 START: drop-database
-2023-12-15T13:18:44.730 SQL: DROP DATABASE IF EXISTS tpcds_sf10_ICEBERG CASCADE
-23/12/15 13:18:46 WARN HiveClientImpl: Detected HiveConf hive.execution.engine is 'tez' and will be reset to 'mr' to disable useless hive logic
-2023-12-15T13:18:53.514 END took 8782 ms: drop-database
-2023-12-15T13:18:53.514 ================================================================================
-2023-12-15T13:18:53.514 ================================================================================
-2023-12-15T13:18:53.514 START: create-database
-2023-12-15T13:18:53.514 SQL: CREATE DATABASE IF NOT EXISTS tpcds_sf10_ICEBERG
-2023-12-15T13:18:53.723 END took 208 ms: create-database
-2023-12-15T13:18:53.724 ================================================================================
-2023-12-15T13:18:53.726 Generating call_center at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/call_center
-2023-12-15T13:18:53.726 ================================================================================
-2023-12-15T13:18:53.727 START: drop-table-call_center
-2023-12-15T13:18:53.727 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`call_center`
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.exec.orc.default.compress does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.vectorized.complex.types.enabled does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.exec.orc.compression.strategy does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.enforce.sorting does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.metastore.client.scheme.handlers does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.auto.convert.sortmerge.join.noconditionaltask does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.vectorized.execution.ptf.enabled does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.support.sql11.reserved.keywords does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.vectorized.groupby.complex.types.enabled does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.heapsize does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.enforce.bucketing does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.fileformat.managed does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.optimize.mapjoin.mapreduce does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.exec.orc.default.stripe.size does not exist
-23/12/15 13:18:53 WARN HiveConf: HiveConf of name hive.server2.enable.impersonation does not exist
-2023-12-15T13:18:54.225 END took 497 ms: drop-table-call_center
-2023-12-15T13:18:54.225 ================================================================================
-2023-12-15T13:18:54.225 ================================================================================
-2023-12-15T13:18:54.225 START: create-table-call_center
-2023-12-15T13:18:54.225 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`call_center` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/call_center/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/call_center_10gb_parquet`  
-[Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                23/12/15 13:19:06 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
-[Stage 1:>                                                          (0 + 1) / 1]                                                                                2023-12-15T13:19:10.828 END took 16603 ms: create-table-call_center
-2023-12-15T13:19:10.829 ================================================================================
-2023-12-15T13:19:12.276 Generating catalog_page at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/catalog_page
-2023-12-15T13:19:12.276 ================================================================================
-2023-12-15T13:19:12.276 START: drop-table-catalog_page
-2023-12-15T13:19:12.277 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`catalog_page`
-2023-12-15T13:19:12.294 END took 17 ms: drop-table-catalog_page
-2023-12-15T13:19:12.294 ================================================================================
-2023-12-15T13:19:12.294 ================================================================================
-2023-12-15T13:19:12.294 START: create-table-catalog_page
-2023-12-15T13:19:12.294 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`catalog_page` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/catalog_page/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/catalog_page_10gb_parquet`  
-[Stage 10:>                                                        (0 + 1) / 15][Stage 10:>                                                        (0 + 2) / 15][Stage 10:>                                                        (0 + 3) / 15][Stage 10:>                                                        (0 + 5) / 15][Stage 10:>                                                        (0 + 9) / 15][Stage 10:===>                                                     (1 + 9) / 15][Stage 10:===>                                                    (1 + 10) / 15][Stage 10:===>                                                    (1 + 14) / 15][Stage 10:=======>                                                (2 + 13) / 15][Stage 10:===========>                                            (3 + 12) / 15][Stage 10:==============>                                         (4 + 11) / 15][Stage 10:==================>                                     (5 + 10) / 15][Stage 10:======================>                                  (6 + 9) / 15][Stage 10:==========================>                              (7 + 8) / 15][Stage 10:==============================>                          (8 + 7) / 15][Stage 10:==================================>                      (9 + 6) / 15][Stage 10:=====================================>                  (10 + 5) / 15][Stage 10:=========================================>              (11 + 4) / 15][Stage 10:============================================>           (12 + 3) / 15][Stage 10:================================================>       (13 + 2) / 15][Stage 10:====================================================>   (14 + 1) / 15]                                                                                2023-12-15T13:19:42.833 END took 30538 ms: create-table-catalog_page
-2023-12-15T13:19:42.833 ================================================================================
-[Stage 11:>                                                         (0 + 1) / 1]                                                                                [Stage 12:=============================================>          (13 + 3) / 16]                                                                                2023-12-15T13:19:45.598 Generating catalog_returns at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/catalog_returns
-2023-12-15T13:19:45.598 ================================================================================
-2023-12-15T13:19:45.598 START: drop-table-catalog_returns
-2023-12-15T13:19:45.598 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`catalog_returns`
-2023-12-15T13:19:45.613 END took 14 ms: drop-table-catalog_returns
-2023-12-15T13:19:45.613 ================================================================================
-2023-12-15T13:19:45.613 ================================================================================
-2023-12-15T13:19:45.613 START: create-table-catalog_returns
-2023-12-15T13:19:45.613 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`catalog_returns` USING ICEBERG PARTITIONED BY (cr_returned_date_sk)  LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/catalog_returns/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/catalog_returns_10gb_parquet` WHERE cr_returned_date_sk IS NOT NULL 
-[Stage 19:================================================>       (13 + 2) / 15][Stage 19:====================================================>   (14 + 1) / 15]                                                                                2023-12-15T13:20:42.317 END took 56703 ms: create-table-catalog_returns
-2023-12-15T13:20:42.317 ================================================================================
-2023-12-15T13:20:43.711 Generating catalog_sales at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/catalog_sales
-2023-12-15T13:20:43.711 ================================================================================
-2023-12-15T13:20:43.711 START: drop-table-catalog_sales
-2023-12-15T13:20:43.711 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`catalog_sales`
-2023-12-15T13:20:43.726 END took 15 ms: drop-table-catalog_sales
-2023-12-15T13:20:43.726 ================================================================================
-2023-12-15T13:20:43.726 ================================================================================
-2023-12-15T13:20:43.726 START: create-table-catalog_sales
-2023-12-15T13:20:43.727 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`catalog_sales` USING ICEBERG PARTITIONED BY (cs_sold_date_sk)  LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/catalog_sales/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/catalog_sales_10gb_parquet` WHERE cs_sold_date_sk IS NOT NULL 
-[Stage 28:==================>                                     (5 + 10) / 15][Stage 28:======================>                                  (6 + 9) / 15][Stage 28:==========================>                              (7 + 8) / 15][Stage 28:==============================>                          (8 + 7) / 15][Stage 28:=====================================>                  (10 + 5) / 15][Stage 28:=========================================>              (11 + 4) / 15][Stage 28:============================================>           (12 + 3) / 15][Stage 28:================================================>       (13 + 2) / 15][Stage 28:====================================================>   (14 + 1) / 15]                                                                                2023-12-15T13:21:02.587 END took 18860 ms: create-table-catalog_sales
-2023-12-15T13:21:02.587 ================================================================================
-2023-12-15T13:21:03.874 Generating customer at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/customer
-2023-12-15T13:21:03.875 ================================================================================
-2023-12-15T13:21:03.875 START: drop-table-customer
-2023-12-15T13:21:03.875 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`customer`
-2023-12-15T13:21:03.890 END took 15 ms: drop-table-customer
-2023-12-15T13:21:03.890 ================================================================================
-2023-12-15T13:21:03.890 ================================================================================
-2023-12-15T13:21:03.890 START: create-table-customer
-2023-12-15T13:21:03.890 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`customer` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/customer/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/customer_10gb_parquet`  
-[Stage 37:===================================================>     (9 + 1) / 10]                                                                                2023-12-15T13:21:06.547 END took 2656 ms: create-table-customer
-2023-12-15T13:21:06.548 ================================================================================
-2023-12-15T13:21:07.330 Generating customer_address at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/customer_address
-2023-12-15T13:21:07.330 ================================================================================
-2023-12-15T13:21:07.330 START: drop-table-customer_address
-2023-12-15T13:21:07.330 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`customer_address`
-2023-12-15T13:21:07.344 END took 14 ms: drop-table-customer_address
-2023-12-15T13:21:07.344 ================================================================================
-2023-12-15T13:21:07.345 ================================================================================
-2023-12-15T13:21:07.345 START: create-table-customer_address
-2023-12-15T13:21:07.345 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`customer_address` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/customer_address/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/customer_address_10gb_parquet`  
-[Stage 46:======================================>                   (2 + 1) / 3]                                                                                2023-12-15T13:21:08.970 END took 1625 ms: create-table-customer_address
-2023-12-15T13:21:08.970 ================================================================================
-2023-12-15T13:21:09.516 Generating customer_demographics at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/customer_demographics
-2023-12-15T13:21:09.516 ================================================================================
-2023-12-15T13:21:09.516 START: drop-table-customer_demographics
-2023-12-15T13:21:09.516 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`customer_demographics`
-2023-12-15T13:21:09.528 END took 12 ms: drop-table-customer_demographics
-2023-12-15T13:21:09.528 ================================================================================
-2023-12-15T13:21:09.528 ================================================================================
-2023-12-15T13:21:09.528 START: create-table-customer_demographics
-2023-12-15T13:21:09.528 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`customer_demographics` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/customer_demographics/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/customer_demographics_10gb_parquet`  
-[Stage 55:======================================>                   (2 + 1) / 3]                                                                                2023-12-15T13:21:11.994 END took 2466 ms: create-table-customer_demographics
-2023-12-15T13:21:11.995 ================================================================================
-2023-12-15T13:21:12.599 Generating date_dim at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/date_dim
-2023-12-15T13:21:12.599 ================================================================================
-2023-12-15T13:21:12.599 START: drop-table-date_dim
-2023-12-15T13:21:12.599 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`date_dim`
-2023-12-15T13:21:12.612 END took 12 ms: drop-table-date_dim
-2023-12-15T13:21:12.612 ================================================================================
-2023-12-15T13:21:12.612 ================================================================================
-2023-12-15T13:21:12.612 START: create-table-date_dim
-2023-12-15T13:21:12.612 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`date_dim` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/date_dim/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/date_dim_10gb_parquet`  
-[Stage 64:>                                                         (0 + 1) / 1]                                                                                2023-12-15T13:21:14.032 END took 1419 ms: create-table-date_dim
-2023-12-15T13:21:14.032 ================================================================================
-2023-12-15T13:21:14.548 Generating household_demographics at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/household_demographics
-2023-12-15T13:21:14.549 ================================================================================
-2023-12-15T13:21:14.549 START: drop-table-household_demographics
-2023-12-15T13:21:14.549 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`household_demographics`
-2023-12-15T13:21:14.561 END took 12 ms: drop-table-household_demographics
-2023-12-15T13:21:14.561 ================================================================================
-2023-12-15T13:21:14.561 ================================================================================
-2023-12-15T13:21:14.561 START: create-table-household_demographics
-2023-12-15T13:21:14.561 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`household_demographics` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/household_demographics/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/household_demographics_10gb_parquet`  
-2023-12-15T13:21:15.301 END took 739 ms: create-table-household_demographics
-2023-12-15T13:21:15.301 ================================================================================
-2023-12-15T13:21:15.723 Generating income_band at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/income_band
-2023-12-15T13:21:15.723 ================================================================================
-2023-12-15T13:21:15.723 START: drop-table-income_band
-2023-12-15T13:21:15.723 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`income_band`
-2023-12-15T13:21:15.756 END took 32 ms: drop-table-income_band
-2023-12-15T13:21:15.756 ================================================================================
-2023-12-15T13:21:15.756 ================================================================================
-2023-12-15T13:21:15.756 START: create-table-income_band
-2023-12-15T13:21:15.756 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`income_band` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/income_band/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/income_band_10gb_parquet`  
-2023-12-15T13:21:16.496 END took 739 ms: create-table-income_band
-2023-12-15T13:21:16.496 ================================================================================
-2023-12-15T13:21:17.205 Generating inventory at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/inventory
-2023-12-15T13:21:17.205 ================================================================================
-2023-12-15T13:21:17.205 START: drop-table-inventory
-2023-12-15T13:21:17.205 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`inventory`
-2023-12-15T13:21:17.227 END took 22 ms: drop-table-inventory
-2023-12-15T13:21:17.227 ================================================================================
-2023-12-15T13:21:17.227 ================================================================================
-2023-12-15T13:21:17.227 START: create-table-inventory
-2023-12-15T13:21:17.227 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`inventory` USING ICEBERG PARTITIONED BY (inv_date_sk)  LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/inventory/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/inventory_10gb_parquet` WHERE inv_date_sk IS NOT NULL 
-[Stage 91:=====================================>                  (10 + 5) / 15][Stage 91:=========================================>              (11 + 4) / 15][Stage 91:============================================>           (12 + 3) / 15][Stage 91:================================================>       (13 + 2) / 15][Stage 91:====================================================>   (14 + 1) / 15]                                                                                2023-12-15T13:21:33.327 END took 16099 ms: create-table-inventory
-2023-12-15T13:21:33.327 ================================================================================
-2023-12-15T13:21:34.086 Generating item at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/item
-2023-12-15T13:21:34.086 ================================================================================
-2023-12-15T13:21:34.087 START: drop-table-item
-2023-12-15T13:21:34.087 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`item`
-2023-12-15T13:21:34.116 END took 29 ms: drop-table-item
-2023-12-15T13:21:34.116 ================================================================================
-2023-12-15T13:21:34.116 ================================================================================
-2023-12-15T13:21:34.117 START: create-table-item
-2023-12-15T13:21:34.117 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`item` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/item/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/item_10gb_parquet`  
-[Stage 100:==========================================>              (3 + 1) / 4]                                                                                2023-12-15T13:21:35.610 END took 1493 ms: create-table-item
-2023-12-15T13:21:35.610 ================================================================================
-2023-12-15T13:21:36.171 Generating promotion at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/promotion
-2023-12-15T13:21:36.172 ================================================================================
-2023-12-15T13:21:36.172 START: drop-table-promotion
-2023-12-15T13:21:36.172 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`promotion`
-2023-12-15T13:21:36.184 END took 11 ms: drop-table-promotion
-2023-12-15T13:21:36.184 ================================================================================
-2023-12-15T13:21:36.184 ================================================================================
-2023-12-15T13:21:36.184 START: create-table-promotion
-2023-12-15T13:21:36.184 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`promotion` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/promotion/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/promotion_10gb_parquet`  
-2023-12-15T13:21:36.889 END took 705 ms: create-table-promotion
-2023-12-15T13:21:36.889 ================================================================================
-2023-12-15T13:21:37.391 Generating reason at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/reason
-2023-12-15T13:21:37.391 ================================================================================
-2023-12-15T13:21:37.391 START: drop-table-reason
-2023-12-15T13:21:37.391 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`reason`
-2023-12-15T13:21:37.407 END took 16 ms: drop-table-reason
-2023-12-15T13:21:37.407 ================================================================================
-2023-12-15T13:21:37.407 ================================================================================
-2023-12-15T13:21:37.407 START: create-table-reason
-2023-12-15T13:21:37.407 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`reason` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/reason/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/reason_10gb_parquet`  
-2023-12-15T13:21:38.104 END took 696 ms: create-table-reason
-2023-12-15T13:21:38.105 ================================================================================
-2023-12-15T13:21:38.692 Generating ship_mode at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/ship_mode
-2023-12-15T13:21:38.693 ================================================================================
-2023-12-15T13:21:38.693 START: drop-table-ship_mode
-2023-12-15T13:21:38.693 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`ship_mode`
-2023-12-15T13:21:38.703 END took 10 ms: drop-table-ship_mode
-2023-12-15T13:21:38.703 ================================================================================
-2023-12-15T13:21:38.704 ================================================================================
-2023-12-15T13:21:38.704 START: create-table-ship_mode
-2023-12-15T13:21:38.704 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`ship_mode` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/ship_mode/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/ship_mode_10gb_parquet`  
-2023-12-15T13:21:39.494 END took 790 ms: create-table-ship_mode
-2023-12-15T13:21:39.494 ================================================================================
-2023-12-15T13:21:39.914 Generating store at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/store
-2023-12-15T13:21:39.914 ================================================================================
-2023-12-15T13:21:39.914 START: drop-table-store
-2023-12-15T13:21:39.914 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`store`
-2023-12-15T13:21:39.945 END took 30 ms: drop-table-store
-2023-12-15T13:21:39.945 ================================================================================
-2023-12-15T13:21:39.945 ================================================================================
-2023-12-15T13:21:39.945 START: create-table-store
-2023-12-15T13:21:39.945 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`store` USING ICEBERG LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/store/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/store_10gb_parquet`  
-2023-12-15T13:21:40.870 END took 924 ms: create-table-store
-2023-12-15T13:21:40.870 ================================================================================
-2023-12-15T13:21:41.313 Generating store_returns at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/store_returns
-2023-12-15T13:21:41.313 ================================================================================
-2023-12-15T13:21:41.313 START: drop-table-store_returns
-2023-12-15T13:21:41.313 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`store_returns`
-2023-12-15T13:21:41.324 END took 10 ms: drop-table-store_returns
-2023-12-15T13:21:41.324 ================================================================================
-2023-12-15T13:21:41.324 ================================================================================
-2023-12-15T13:21:41.324 START: create-table-store_returns
-2023-12-15T13:21:41.324 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`store_returns` USING ICEBERG PARTITIONED BY (sr_returned_date_sk)  LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/store_returns/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/store_returns_10gb_parquet` WHERE sr_returned_date_sk IS NOT NULL 
-[Stage 145:===============================================>       (13 + 2) / 15][Stage 145:===================================================>   (14 + 1) / 15]                                                                                2023-12-15T13:22:44.883 END took 63559 ms: create-table-store_returns
-2023-12-15T13:22:44.884 ================================================================================
-2023-12-15T13:22:45.690 Generating store_sales at hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/store_sales
-2023-12-15T13:22:45.690 ================================================================================
-2023-12-15T13:22:45.690 START: drop-table-store_sales
-2023-12-15T13:22:45.690 SQL: DROP TABLE IF EXISTS `hive_pluto`.`tpcds_sf10_ICEBERG`.`store_sales`
-2023-12-15T13:22:45.703 END took 12 ms: drop-table-store_sales
-2023-12-15T13:22:45.703 ================================================================================
-2023-12-15T13:22:45.703 ================================================================================
-2023-12-15T13:22:45.703 START: create-table-store_sales
-2023-12-15T13:22:45.703 SQL: CREATE TABLE `hive_pluto`.`tpcds_sf10_ICEBERG`.`store_sales` USING ICEBERG PARTITIONED BY (ss_sold_date_sk)  LOCATION 'hdfs://pluto/tmp/vanshika-yadav/iceberg-benchmarking/databases/tpcds_sf10_ICEBERG_20231215_131558_tpcds_10gb_iceberg_load/store_sales/' TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2) AS SELECT * FROM `parquet`.`gs://fksdp-mhora-zrwe-0f09-discoverycontentimpression/benchmarking/iceberg-benchmarking/10gb/store_sales_10gb_parquet` WHERE ss_sold_date_sk IS NOT NULL 
-[Stage 154:>                                                       (0 + 2) / 13]/var/lib/fk-pf-spark3-4/bin/spark-shell: line 47: 19850 Killed                  "${SPARK_HOME}"/bin/spark-submit --class org.apache.spark.repl.Main --name "Spark shell" "$@"
