@@ -34,7 +34,7 @@ case class TPCDSBenchmarkConf(
      protected val format: Option[String] = None,
      scaleInGB: Int = 0,
      userDefinedDbName: Option[String] = None,
-     iterations: Int = 4,
+     iterations: Int = 3,
      benchmarkPath: Option[String] = None) extends TPCDSConf
 
 object TPCDSBenchmarkConf {
@@ -73,8 +73,8 @@ object TPCDSBenchmarkConf {
 
 class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
   val queries: Map[String, String] = {
-    if (conf.scaleInGB <= 3000) TPCDSQueries3TB
-    else if (conf.scaleInGB == 10) TPCDSQueries10TB
+    if (conf.scaleInGB <= 30) TPCDSQueries3TB
+    else if (conf.scaleInGB == 100) TPCDSQueries10TB
     else throw new IllegalArgumentException(
       s"Unsupported scale factor of ${conf.scaleInGB} GB")
   }

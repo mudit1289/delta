@@ -211,8 +211,6 @@ class IcebergBenchmarkSpec(BenchmarkSpec):
             "spark.sql.catalog.hive_pluto=org.apache.iceberg.spark.SparkCatalog",
             "spark.sql.catalog.hive_pluto.type=hive",
             "spark.sql.catalog.hive_pluto.uri=thrift://10.116.17.2:9083",
-            "spark.sql.sources.partitionOverwriteMode=dynamic",
-            "spark.executor.extraJavaOptions=-XX:MaxDirectMemorySize=8096m -Dio.netty.maxDirectMemory=8096m -XX:+UseG1GC -XX:ConcGCThreads=2",
             "spark.driver.memory=5120m",
             "spark.executor.memory=10240m"
         ]
