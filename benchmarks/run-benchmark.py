@@ -38,7 +38,7 @@ benchmarks = {
     "tpcds-1gb-parquet-load": ParquetTPCDSDataLoadSpec(scale_in_gb=1),
     "tpcds-3tb-parquet-load": ParquetTPCDSDataLoadSpec(scale_in_gb=3000),
     "tpcds-1gb-iceberg-load": IcebergTPCDSDataLoadSpec(iceberg_version=iceberg_version, scale_in_gb=1, use_datasource=True),
-    "tpcds-10gb-iceberg-load": IcebergTPCDSDataLoadSpec(iceberg_version=iceberg_version, scale_in_gb=10, use_datasource=True),
+    "tpcds-1000gb-iceberg-load": IcebergTPCDSDataLoadSpec(iceberg_version=iceberg_version, scale_in_gb=1000, use_datasource=True),
 
     # TPC-DS benchmark
     "tpcds-1gb-delta": DeltaTPCDSBenchmarkSpec(delta_version=delta_version, scale_in_gb=1),
@@ -46,7 +46,7 @@ benchmarks = {
     "tpcds-1gb-parquet": ParquetTPCDSBenchmarkSpec(scale_in_gb=1),
     "tpcds-3tb-parquet": ParquetTPCDSBenchmarkSpec(scale_in_gb=3000),
     "tpcds-1gb-iceberg": IcebergTPCDSBenchmarkSpec(iceberg_version=iceberg_version, scale_in_gb=1),
-    "tpcds-10gb-iceberg": IcebergTPCDSBenchmarkSpec(iceberg_version=iceberg_version, scale_in_gb=10),
+    "tpcds-1000gb-iceberg": IcebergTPCDSBenchmarkSpec(iceberg_version=iceberg_version, scale_in_gb=1000),
 
 }
 

@@ -81,7 +81,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     val sourceFormat = "parquet"
     require(conf.scaleInGB > 0)
-    require(Seq(1, 10).contains(conf.scaleInGB), "")
+    require(Seq(1, 1000).contains(conf.scaleInGB), "")
     val sourceLocation = conf.sourcePath.getOrElse {
       s"s3://devrel-delta-datasets/tpcds-2.13/tpcds_sf${conf.scaleInGB}_parquet/"
     }
@@ -111,7 +111,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
                    USING ${conf.formatName}
                    $partitionedBy $tableOptions
                    LOCATION '$targetLocation'
-                   TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2)
+                   TBLPROPERTIES ('write.spark.fanout.enabled'='true', 'format-version'=2, 'write.parquet.compression-codec'='snappy')
                    AS SELECT * FROM `${sourceFormat}`.`$sourceTableLocation` $excludeNulls
                 """, s"create-table-$tableName", ignoreError = true)
 
