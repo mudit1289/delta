@@ -91,7 +91,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     // Iterate through all the source tables
     tableNamesTpcds.foreach { tableName =>
-      val sourceTableLocation = s"${sourceLocation}/${tableName}"+"_10gb_parquet"
+      val sourceTableLocation = s"${sourceLocation}/${tableName}"
       val targetLocation = s"${dbLocation}/${tableName}/"
       val fullTableName = s"`$dbCatalog`.`$dbName`.`$tableName`"
       log(s"Generating $tableName at $dbLocation/$tableName")

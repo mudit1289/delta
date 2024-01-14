@@ -66,7 +66,7 @@ class BenchmarkSpec:
         main_class_args = ' '.join(self.benchmark_main_class_args)
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_submit_cmd = (
-                f"/var/lib/fk-pf-spark3/bin/spark-submit {spark_shell_args_str} " +
+                f"/var/lib/fk-pf-spark3-4/bin/spark-submit {spark_shell_args_str} " +
                 (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
                 f"{spark_conf_str} --class {self.benchmark_main_class} " +
                 f"{benchmark_jar_path} {main_class_args}"
