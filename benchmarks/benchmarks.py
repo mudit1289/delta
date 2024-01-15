@@ -67,7 +67,7 @@ class BenchmarkSpec:
         main_class_args = ' '.join(self.benchmark_main_class_args)
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_submit_cmd = (
-                f"/var/lib/fk-pf-spark3/bin/spark-submit {spark_shell_args_str} " +
+                f"/var/lib/fk-pf-spark3-4/bin/spark-submit {spark_shell_args_str} " +
                 (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
                 (f"--jars {self.jar_artifacts} " if self.jar_artifacts else "") +
                 f"{spark_conf_str} --class {self.benchmark_main_class} " +
@@ -84,7 +84,7 @@ class BenchmarkSpec:
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         jars = benchmark_jar_path + (f",{self.jar_artifacts}" if self.jar_artifacts else "")
         spark_shell_cmd = (
-                f"export SUDO_USER=BADGER; /var/lib/fk-pf-spark3-4/bin/spark-shell --queue critical --master yarn --deploy-mode client {spark_shell_args_str} " +
+                f"export SUDO_USER=BADGER; /var/lib/fk-pf-spark3-4/bin/spark-shell --queue fdsg_adhoc --master yarn --deploy-mode client {spark_shell_args_str} " +
                 #(f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
                 f"{spark_conf_str} --jars {benchmark_jar_path},/var/lib/fk-pf-spark3-4/jars/hudi-spark3.4-bundle_2.12-0.14.0.jar -I {benchmark_init_file_path}"
 
