@@ -88,7 +88,7 @@ class TPCDSDataLoad(conf: TPCDSDataLoadConf) extends Benchmark(conf) {
 
     val sourceFormat = "parquet"
     require(conf.scaleInGB > 0)
-    require(Seq(1, 1000).contains(conf.scaleInGB), "")
+    require(Seq(1, 10000).contains(conf.scaleInGB), "")
     val sourceLocation = conf.sourcePath.getOrElse {
       s"s3://devrel-delta-datasets/tpcds-2.13/tpcds_sf${conf.scaleInGB}_parquet/"
     }
