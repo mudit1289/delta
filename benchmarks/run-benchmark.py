@@ -43,6 +43,7 @@ benchmarks = {
     "tpcds-1gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=1, use_datasource=True),
     "tpcds-1000gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=1000, use_datasource=True),
     "tpcds-10000gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=10000, use_datasource=True),
+    "tpcds-100000gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=100000, use_datasource=True),
 
     # TPC-DS benchmark
     "tpcds-1gb-delta": DeltaTPCDSBenchmarkSpec(delta_version=delta_version, scale_in_gb=1),
@@ -54,6 +55,7 @@ benchmarks = {
     "tpcds-1gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=1),
     "tpcds-1000gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=1000),
     "tpcds-10000gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=10000),
+    "tpcds-100000gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=100000),
 
 }
 
