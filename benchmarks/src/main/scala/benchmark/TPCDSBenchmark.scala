@@ -35,7 +35,9 @@ case class TPCDSBenchmarkConf(
      scaleInGB: Int = 0,
      userDefinedDbName: Option[String] = None,
      iterations: Int = 3,
-     benchmarkPath: Option[String] = None) extends TPCDSConf
+     benchmarkPath: Option[String] = None,
+     queryOffset: Int = 1,
+     queryLimit: Int = 100000) extends TPCDSConf
 
 object TPCDSBenchmarkConf {
   import scopt.OParser
@@ -63,6 +65,16 @@ object TPCDSBenchmarkConf {
         .valueName("<number of iterations>")
         .action((x, c) => c.copy(iterations = x.toInt))
         .text("Number of times to run the queries"),
+      opt[String]("queryOffset")
+        .optional()
+        .valueName("<query offset>")
+        .action((x, c) => c.copy(queryOffset = x.toInt))
+        .text("Offset to start queries with"),
+      opt[String]("queryLimit")
+        .optional()
+        .valueName("<query limit>")
+        .action((x, c) => c.copy(queryLimit = x.toInt))
+        .text("Limit till queries to be run"),
     )
   }
 
@@ -93,8 +105,15 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))
     spark.sql(s"USE tpcds_sf${conf.scaleInGB}_hudi_gcs")
     for (iteration <- 1 to conf.iterations) {
-      queries.toSeq.sortBy(_._1).foreach { case (name, sql) =>
-        runQuery(sql, iteration = Some(iteration), queryName = name)
+      queries.toSeq.sortBy(_._1).foreach { case (name, sql) => {
+          val queryNum: Int = name.trim.split("q").headOption.getOrElse(0)
+          if(queryNum >= conf.queryOffset && queryNum <= (conf.queryOffset + conf.queryLimit)) {
+            runQuery(sql, iteration = Some(iteration), queryName = name)
+          } else {
+            log("Skipping: " + name)
+          }
+        }
+
       }
     }
     val results = getQueryResults().filter(_.name.startsWith("q"))
