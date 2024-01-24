@@ -36,7 +36,7 @@ case class TPCDSBenchmarkConf(
      userDefinedDbName: Option[String] = None,
      iterations: Int = 3,
      benchmarkPath: Option[String] = None,
-     queryOffset: Int = 1,
+     queryOffset: Int = 0,
      queryLimit: Int = 100000) extends TPCDSConf
 
 object TPCDSBenchmarkConf {
@@ -104,16 +104,16 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
     spark.sparkContext.setLogLevel("WARN")
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))
     spark.sql(s"USE tpcds_sf${conf.scaleInGB}_hudi_gcs")
+    val regex = """\b(\d+)\b""".r
     for (iteration <- 1 to conf.iterations) {
       queries.toSeq.sortBy(_._1).foreach { case (name, sql) => {
-          val queryNum: Int = name.trim.split("q").headOption.getOrElse(0)
+          val queryNum: Int = regex.findFirstMatchIn(name.trim.split("q").lift(1).getOrElse("0")).map(_.group(1).toInt).getOrElse(0)
           if(queryNum >= conf.queryOffset && queryNum <= (conf.queryOffset + conf.queryLimit)) {
             runQuery(sql, iteration = Some(iteration), queryName = name)
           } else {
             log("Skipping: " + name)
           }
         }
-
       }
     }
     val results = getQueryResults().filter(_.name.startsWith("q"))
