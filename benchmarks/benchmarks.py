@@ -14,9 +14,10 @@
 # limitations under the License.
 #
 
-from scripts.utils import *
 from datetime import datetime
 import time
+
+from utils import *
 
 
 class BenchmarkSpec:
@@ -29,6 +30,7 @@ class BenchmarkSpec:
     :param benchmark_main_class: Name of main Scala class from the JAR to run
     :param main_class_args: command line args for the main class
     """
+
     def __init__(
             self, format_name, maven_artifacts, spark_confs,
             benchmark_main_class, main_class_args, extra_spark_shell_args=None, **kwargs):
@@ -37,6 +39,7 @@ class BenchmarkSpec:
         if extra_spark_shell_args is None:
             extra_spark_shell_args = []
         self.format_name = format_name
+        # self.format_version = format_version
         self.maven_artifacts = maven_artifacts
         self.spark_confs = spark_confs
         self.benchmark_main_class = benchmark_main_class
@@ -63,10 +66,10 @@ class BenchmarkSpec:
         main_class_args = ' '.join(self.benchmark_main_class_args)
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_submit_cmd = (
-            f"spark-submit {spark_shell_args_str} " +
-            (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
-            f"{spark_conf_str} --class {self.benchmark_main_class} " +
-            f"{benchmark_jar_path} {main_class_args}"
+                f"/<PATH_TO_SPARK_HOME_BIN_FOLDER>/spark-submit {spark_shell_args_str} " +
+                (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
+                f"{spark_conf_str} --class {self.benchmark_main_class} " +
+                f"{benchmark_jar_path} {main_class_args}"
         )
         print(spark_submit_cmd)
         return spark_submit_cmd
@@ -78,9 +81,10 @@ class BenchmarkSpec:
             spark_conf_str += f"""--conf "{conf}" """
         spark_shell_args_str = ' '.join(self.extra_spark_shell_args)
         spark_shell_cmd = (
-                f"spark-shell {spark_shell_args_str} " +
-                (f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
-                f"{spark_conf_str} --jars {benchmark_jar_path} -I {benchmark_init_file_path}"
+                f"/<PATH_TO_SPARK_HOME_BIN_FOLDER>/spark-shell --queue <SPARK_QUEUE> --master yarn --deploy-mode client {spark_shell_args_str} " +
+                #(f"--packages {self.maven_artifacts} " if self.maven_artifacts else "") +
+                f"{spark_conf_str} --jars {benchmark_jar_path},/<PATH_TO_SPARK_HOME_JARS_FOLDER>/iceberg-spark-runtime-3.4_2.12-1.4.0.jar -I {benchmark_init_file_path}"
+
         )
         print(spark_shell_cmd)
         return spark_shell_cmd
@@ -91,6 +95,7 @@ class TPCDSDataLoadSpec(BenchmarkSpec):
     Specifications of TPC-DS data load process.
     Always mixin in this first before the base benchmark class.
     """
+
     def __init__(self, scale_in_gb, exclude_nulls=True, **kwargs):
         # forward all keyword args to next constructor
         super().__init__(benchmark_main_class="benchmark.TPCDSDataLoad", **kwargs)
@@ -107,6 +112,7 @@ class TPCDSBenchmarkSpec(BenchmarkSpec):
     """
     Specifications of TPC-DS benchmark
     """
+
     def __init__(self, scale_in_gb, **kwargs):
         # forward all keyword args to next constructor
         super().__init__(benchmark_main_class="benchmark.TPCDSBenchmark", **kwargs)
@@ -117,7 +123,6 @@ class TPCDSBenchmarkSpec(BenchmarkSpec):
         ])
 
 
-
 # ============== Delta benchmark specifications ==============
 
 
@@ -125,6 +130,7 @@ class DeltaBenchmarkSpec(BenchmarkSpec):
     """
     Specification of a benchmark using the Delta format
     """
+
     def __init__(self, delta_version, benchmark_main_class, main_class_args=None, scala_version="2.12", **kwargs):
         delta_spark_confs = [
             "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
@@ -171,6 +177,7 @@ class ParquetBenchmarkSpec(BenchmarkSpec):
     """
     Specification of a benchmark using the Parquet format
     """
+
     def __init__(self, benchmark_main_class, main_class_args=None, **kwargs):
         super().__init__(
             format_name="parquet",
@@ -181,6 +188,7 @@ class ParquetBenchmarkSpec(BenchmarkSpec):
             **kwargs
         )
 
+
 class ParquetTPCDSDataLoadSpec(TPCDSDataLoadSpec, ParquetBenchmarkSpec):
     def __init__(self, scale_in_gb=1):
         super().__init__(scale_in_gb=scale_in_gb)
@@ -189,6 +197,59 @@ class ParquetTPCDSDataLoadSpec(TPCDSDataLoadSpec, ParquetBenchmarkSpec):
 class ParquetTPCDSBenchmarkSpec(TPCDSBenchmarkSpec, ParquetBenchmarkSpec):
     def __init__(self, scale_in_gb=1):
         super().__init__(scale_in_gb=scale_in_gb)
+
+
+# ============== Iceberg benchmark specifications ==============
+class IcebergBenchmarkSpec(BenchmarkSpec):
+    """
+    Specification of a benchmark using the Delta format
+    """
+
+    def __init__(self, iceberg_version, benchmark_main_class, main_class_args=None, scala_version="2.12", **kwargs):
+        iceberg_spark_confs = [
+            "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
+            "spark.sql.catalog.hive_cat=org.apache.iceberg.spark.SparkCatalog",
+            "spark.sql.catalog.hive_cat.type=hive",
+            "spark.sql.catalog.hive_cat.uri=thrift://<HIVE_METASTORE_IP>:9083",
+            "spark.driver.memory=10240m",
+            "spark.executor.memory=10240m",
+            "spark.dynamicAllocation.maxExecutors=600",
+            "spark.dynamicAllocation.minExecutors=2",
+            "spark.hadoop.fs.gs.outputstream.upload.chunk.size=25165824"
+        ]
+        self.scala_version = scala_version
+
+        if "spark_confs" in kwargs and isinstance(kwargs["spark_confs"], list):
+            kwargs["spark_confs"].extend(iceberg_spark_confs)
+        else:
+            kwargs["spark_confs"] = iceberg_spark_confs
+
+        super().__init__(
+            format_name="ICEBERG",
+            # format_version=2,
+            maven_artifacts=self.iceberg_maven_artifacts(iceberg_version, self.scala_version),
+            benchmark_main_class=benchmark_main_class,
+            main_class_args=main_class_args,
+            **kwargs
+        )
+
+    def update_iceberg_version(self, new_iceberg_version):
+        self.maven_artifacts = \
+            IcebergBenchmarkSpec.iceberg_maven_artifacts(new_iceberg_version, self.scala_version)
+
+    @staticmethod
+    def iceberg_maven_artifacts(iceberg_version, scala_version):
+        return f"org.apache.iceberg:iceberg-hive-runtime:{iceberg_version},org.apache.iceberg:iceberg-spark-runtime:{iceberg_version}"
+
+
+class IcebergTPCDSDataLoadSpec(TPCDSDataLoadSpec, IcebergBenchmarkSpec):
+    def __init__(self, iceberg_version, scale_in_gb=1, use_datasource=True):
+        super().__init__(iceberg_version=iceberg_version, scale_in_gb=scale_in_gb)
+
+
+class IcebergTPCDSBenchmarkSpec(TPCDSBenchmarkSpec, IcebergBenchmarkSpec):
+    def __init__(self, iceberg_version, scale_in_gb=1, use_datasource=True):
+        super().__init__(iceberg_version=iceberg_version, scale_in_gb=scale_in_gb)
 
 
 # ============== General benchmark execution ==============
@@ -201,6 +262,7 @@ class Benchmark:
                            Added to file names generated by this benchmark.
     :param benchmark_spec: Specification of the benchmark. See BenchmarkSpec.
     """
+
     def __init__(self, benchmark_name, benchmark_spec, use_spark_shell, local_delta_dir=None):
         now = datetime.now()
         self.benchmark_id = now.strftime("%Y%m%d-%H%M%S") + "-" + benchmark_name
@@ -214,22 +276,21 @@ class Benchmark:
         self.use_spark_shell = use_spark_shell
         self.local_delta_dir = local_delta_dir
 
-    def run(self, cluster_hostname, ssh_id_file, ssh_user):
-        if self.local_delta_dir and isinstance(self.benchmark_spec, DeltaBenchmarkSpec):
+    def run(self, cluster_hostname):
+        if self.local_delta_dir and isinstance(self.benchmark_spec, IcebergBenchmarkSpec):
             # Upload new Delta jar to cluster and update spec to use the jar's version
-            delta_version_to_use = \
-                self.upload_delta_jars_to_cluster_and_get_version(cluster_hostname, ssh_id_file, ssh_user)
-            self.benchmark_spec.update_delta_version(delta_version_to_use)
+            iceberg_version_to_use = \
+                self.compile_iceberg_jars_and_get_version(cluster_hostname)
+            self.benchmark_spec.update_iceberg_version(iceberg_version_to_use)
 
-        jar_path_in_cluster = self.upload_jar_to_cluster(cluster_hostname, ssh_id_file, ssh_user)
-        self.install_dependencies_via_ssh(cluster_hostname, ssh_id_file, ssh_user)
-        self.start_benchmark_via_ssh(cluster_hostname, ssh_id_file, jar_path_in_cluster, ssh_user)
-        Benchmark.wait_for_completion(cluster_hostname, ssh_id_file, self.benchmark_id, ssh_user)
+        jar_path_in_cluster = self.upload_jar_to_cluster(cluster_hostname)
+        self.install_dependencies_via_ssh(cluster_hostname)
+        self.start_benchmark_via_ssh(cluster_hostname, jar_path_in_cluster)
+        Benchmark.wait_for_completion(cluster_hostname, self.benchmark_id)
 
     def spark_submit_script_content(self, jar_path):
         return f"""
 #!/bin/bash
-jps | grep "Spark" | cut -f 1 -d ' ' |  xargs kill -9
 set -e
 {self.benchmark_spec.get_sparksubmit_cmd(jar_path)} 2>&1 | tee {self.output_file}
 """.strip()
@@ -245,13 +306,12 @@ set -e
         shell_cmd = self.benchmark_spec.get_sparkshell_cmd(jar_path, shell_init_file_name)
         return f"""
 #!/bin/bash
-jps | grep "Spark" | cut -f 1 -d ' ' |  xargs kill -9
 echo '{shell_init_file_content}' > {shell_init_file_name}
 {shell_cmd} 2>&1 | tee {self.output_file}
 touch {self.completed_file}
 """.strip()
 
-    def upload_jar_to_cluster(self, cluster_hostname, ssh_id_file, ssh_user, delta_version_to_use=None):
+    def upload_jar_to_cluster(self, cluster_ip):
         # Compile JAR
         # Note: Deleting existing JARs instead of sbt clean is faster
         if os.path.exists("target"):
@@ -264,13 +324,13 @@ touch {self.completed_file}
         jar_local_path = out.decode("utf-8").strip()
         jar_remote_path = f"{self.benchmark_id}-benchmarks.jar"
         scp_cmd = \
-            f"scp -C -i {ssh_id_file} {jar_local_path} {ssh_user}@{cluster_hostname}:{jar_remote_path}"
+            f"scp -C {jar_local_path} {cluster_ip}:~/{jar_remote_path}"
         print(scp_cmd)
         run_cmd(scp_cmd, stream_output=True)
         print(">>> Benchmark JAR uploaded to cluster\n")
         return f"~/{jar_remote_path}"
 
-    def install_dependencies_via_ssh(self, cluster_hostname, ssh_id_file, ssh_user):
+    def install_dependencies_via_ssh(self, cluster_hostname):
         script_file_name = f"{self.benchmark_id}-install-deps.sh"
         script_file_text = """
 #!/bin/bash
@@ -293,18 +353,18 @@ fi
 
 
         """.strip()
-        self.copy_script_via_ssh(cluster_hostname, ssh_id_file, ssh_user, script_file_name, script_file_text)
+        self.copy_script_via_ssh(cluster_hostname, script_file_name, script_file_text)
         print(">>> Install dependencies script generated and uploaded\n")
 
         job_cmd = (
-                f"ssh -i {ssh_id_file} {ssh_user}@{cluster_hostname} " +
-                f"bash {script_file_name}"
+                f"ssh {cluster_hostname} " +
+                f"bash ~/{script_file_name}"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
         print(">>> Dependencies have been installed\n")
 
-    def start_benchmark_via_ssh(self, cluster_hostname, ssh_id_file, jar_path, ssh_user):
+    def start_benchmark_via_ssh(self, cluster_hostname, jar_path):
         # Generate and upload the script to run the benchmark
         script_file_name = f"{self.benchmark_id}-cmd.sh"
         if self.use_spark_shell:
@@ -312,38 +372,38 @@ fi
         else:
             script_file_text = self.spark_submit_script_content(jar_path)
 
-        self.copy_script_via_ssh(cluster_hostname, ssh_id_file, ssh_user, script_file_name, script_file_text)
+        self.copy_script_via_ssh(cluster_hostname, script_file_name, script_file_text)
         print(">>> Benchmark script generated and uploaded\n")
 
         # Start the script
         job_cmd = (
-            f"ssh -i {ssh_id_file} {ssh_user}@{cluster_hostname} " +
-            f"screen -d -m bash {script_file_name}"
+                f"ssh {cluster_hostname} " +
+                f"nohup bash {script_file_name} > ~/{self.benchmark_id}-out.txt 2>&1 &"
         )
         print(job_cmd)
         run_cmd(job_cmd, stream_output=True)
 
         # Print the screen where it is running
-        run_cmd(f"ssh -i {ssh_id_file} {ssh_user}@{cluster_hostname}" +
-                f""" "screen -ls ; sleep 2; echo Files for this benchmark: ; ls {self.benchmark_id}*" """,
+        run_cmd(f"ssh {cluster_hostname}" +
+                f""" "sleep 2; echo Files for this benchmark: ; ls {self.benchmark_id}*" """,
                 stream_output=True, throw_on_error=False)
-        print(f">>> Benchmark id {self.benchmark_id} started in a screen. Stdout piped into {self.output_file}. "
+        print(f">>> Benchmark id {self.benchmark_id} started in a nohup. Stdout piped into {self.output_file}. "
               f"Final report will be generated on completion in {self.json_report_file}.\n")
 
     @staticmethod
-    def copy_script_via_ssh(cluster_hostname, ssh_id_file, ssh_user, script_file_name, script_file_text):
+    def copy_script_via_ssh(cluster_hostname, script_file_name, script_file_text):
         try:
             script_file = open(script_file_name, "w")
             script_file.write(script_file_text)
             script_file.close()
 
             scp_cmd = (
-                    f"scp -i {ssh_id_file} {script_file_name}" +
-                    f" {ssh_user}@{cluster_hostname}:{script_file_name}"
+                    f"scp {script_file_name}" +
+                    f" {cluster_hostname}:~/{script_file_name}"
             )
             print(scp_cmd)
             run_cmd(scp_cmd, stream_output=True)
-            run_cmd_over_ssh(f"chmod +x {script_file_name}", cluster_hostname, ssh_id_file, ssh_user,
+            run_cmd_over_ssh(f"chmod +x {script_file_name}", cluster_hostname,
                              throw_on_error=False)
         finally:
             if os.path.exists(script_file_name):
@@ -366,7 +426,7 @@ fi
         return f"{benchmark_id}-completed.txt"
 
     @staticmethod
-    def wait_for_completion(cluster_hostname, ssh_id_file, benchmark_id, ssh_user, copy_report=True):
+    def wait_for_completion(cluster_hostname, benchmark_id, copy_report=True):
         completed = False
         succeeded = False
         output_file = Benchmark.output_file(benchmark_id)
@@ -378,7 +438,7 @@ fi
         while not completed:
             # Print the size of the output file to show progress
             (_, out, _) = run_cmd_over_ssh(f"stat -c '%n:   [%y]   [%s bytes]' {output_file}",
-                                           cluster_hostname, ssh_id_file, ssh_user,
+                                           cluster_hostname,
                                            throw_on_error=False)
             out = out.decode("utf-8").strip()
             print(out)
@@ -387,7 +447,7 @@ fi
                 return
 
             # Check for the existence of the completed file
-            (_, out, _) = run_cmd_over_ssh(f"ls {completed_file}", cluster_hostname, ssh_id_file, ssh_user,
+            (_, out, _) = run_cmd_over_ssh(f"ls {completed_file}", cluster_hostname,
                                            throw_on_error=False)
             if completed_file in out.decode("utf-8"):
                 completed = True
@@ -395,7 +455,7 @@ fi
                 time.sleep(60)
 
         # Check the last few lines of output files to identify success
-        (_, out, _) = run_cmd_over_ssh(f"tail {output_file}", cluster_hostname, ssh_id_file, ssh_user,
+        (_, out, _) = run_cmd_over_ssh(f"tail {output_file}", cluster_hostname,
                                        throw_on_error=False)
         if "SUCCESS" in out.decode("utf-8"):
             succeeded = True
@@ -405,21 +465,20 @@ fi
 
         # Download reports
         if copy_report:
-            Benchmark.download_file(output_file, cluster_hostname, ssh_id_file, ssh_user)
+            Benchmark.download_file(output_file, cluster_hostname)
             if succeeded:
                 report_files = [json_report_file, csv_report_file]
                 for report_file in report_files:
-                    Benchmark.download_file(report_file, cluster_hostname, ssh_id_file, ssh_user)
+                    Benchmark.download_file(report_file, cluster_hostname)
             print(">>> Downloaded reports to local directory")
 
-
     @staticmethod
-    def download_file(file, cluster_hostname, ssh_id_file, ssh_user):
-        run_cmd(f"scp -C -i {ssh_id_file} " +
-                f"{ssh_user}@{cluster_hostname}:{file} {file}",
+    def download_file(file, cluster_hostname):
+        run_cmd(f"scp -C " +
+                f"{cluster_hostname}:~/{file} {file}",
                 stream_output=True)
 
-    def upload_delta_jars_to_cluster_and_get_version(self, cluster_hostname, ssh_id_file, ssh_user):
+    def compile_iceberg_jars_and_get_version(self, cluster_hostname):
         if not self.local_delta_dir:
             raise Exception("Path to delta repo not specified")
         delta_repo_dir = os.path.abspath(self.local_delta_dir)
@@ -443,11 +502,10 @@ fi
             remote_maven_dir = ".ivy2/local/"  # must have "/" at the end
             run_cmd_over_ssh(
                 f"rm -rf {remote_maven_dir}/* .ivy2/cache/io.delta .ivy2/jars/io.delta*",
-                cluster_hostname, ssh_id_file, ssh_user, stream_output=True, throw_on_error=False)
-            run_cmd_over_ssh(f"mkdir -p {remote_maven_dir}", cluster_hostname,
-                             ssh_id_file, ssh_user, stream_output=True)
-            scp_cmd = f"""scp -r -C -i {ssh_id_file} {local_maven_delta_dir.rstrip("/")} """ +\
-                      f"{ssh_user}@{cluster_hostname}:{remote_maven_dir}"
+                cluster_hostname, stream_output=True, throw_on_error=False)
+            run_cmd_over_ssh(f"mkdir -p {remote_maven_dir}", cluster_hostname, stream_output=True)
+            scp_cmd = f"""scp -r -C {local_maven_delta_dir.rstrip("/")} """ +\
+                      f"{cluster_hostname}:~/{remote_maven_dir}"
             print(scp_cmd)
             run_cmd(scp_cmd, stream_output=True)
             print(f">>> Delta {version} JAR uploaded to cluster\n")
