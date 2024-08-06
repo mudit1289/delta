@@ -35,7 +35,11 @@ case class TPCDSBenchmarkConf(
      scaleInGB: Int = 0,
      userDefinedDbName: Option[String] = None,
      iterations: Int = 3,
-     benchmarkPath: Option[String] = None) extends TPCDSConf
+     benchmarkPath: Option[String] = None,
+     queryOffset: Int = 1,
+     queryLimit: Int = 100000,
+     skippedQueries: Array[Int] = Array.empty[Int],
+     cherryPickedQueries: Array[Int] = Array.empty[Int]) extends TPCDSConf
 
 object TPCDSBenchmarkConf {
   import scopt.OParser
@@ -63,6 +67,26 @@ object TPCDSBenchmarkConf {
         .valueName("<number of iterations>")
         .action((x, c) => c.copy(iterations = x.toInt))
         .text("Number of times to run the queries"),
+      opt[String]("queryOffset")
+        .optional()
+        .valueName("<query offset>")
+        .action((x, c) => c.copy(queryOffset = x.toInt))
+        .text("Offset to start queries with"),
+      opt[String]("queryLimit")
+        .optional()
+        .valueName("<query limit>")
+        .action((x, c) => c.copy(queryLimit = x.toInt))
+        .text("Limit till queries to be run"),
+      opt[String]("skippedQueries")
+        .optional()
+        .valueName("<skipped queries>")
+        .action((x, c) => c.copy(skippedQueries = x.split(",").map(_.toInt)))
+        .text("Skipped Queries"),
+      opt[String]("cherryPickedQueries")
+        .optional()
+        .valueName("<cherry picked queries>")
+        .action((x, c) => c.copy(cherryPickedQueries = x.split(",").map(_.toInt)))
+        .text("Cherry Picked Queries"),
     )
   }
 
@@ -74,7 +98,7 @@ object TPCDSBenchmarkConf {
 class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
   val queries: Map[String, String] = {
     if (conf.scaleInGB <= 3000) TPCDSQueries3TB
-    else if (conf.scaleInGB == 10) TPCDSQueries10TB
+    else if (conf.scaleInGB > 3000) TPCDSQueries10TB
     else throw new IllegalArgumentException(
       s"Unsupported scale factor of ${conf.scaleInGB} GB")
   }
@@ -82,17 +106,34 @@ class TPCDSBenchmark(conf: TPCDSBenchmarkConf) extends Benchmark(conf) {
   val dbName = conf.dbName
   val extraConfs: Map[String, String] = Map(
     "spark.sql.broadcastTimeout" -> "7200",
-    "spark.sql.crossJoin.enabled" -> "true"
+    "spark.sql.crossJoin.enabled" -> "true",
+
   )
 
   def runInternal(): Unit = {
+    sys.props.update("spark.ui.proxyBase", "")
     for ((k, v) <- extraConfs) spark.conf.set(k, v)
     spark.sparkContext.setLogLevel("WARN")
     log("All configs:\n\t" + spark.conf.getAll.toSeq.sortBy(_._1).mkString("\n\t"))
-    spark.sql(s"USE $dbName")
+    spark.sql(s"USE tpcds_sf${conf.scaleInGB}_hudi_gcs")
+    val regex = """\b(\d+)\b""".r
     for (iteration <- 1 to conf.iterations) {
-      queries.toSeq.sortBy(_._1).foreach { case (name, sql) =>
-        runQuery(sql, iteration = Some(iteration), queryName = name)
+      queries.toSeq.sortBy(_._1).foreach { case (name, sql) => {
+          val queryNum: Int = regex.findFirstMatchIn(name.trim.split("q").lift(1).getOrElse("0").split("a").lift(0).getOrElse("0").split("b").lift(0).getOrElse("0")).map(_.group(1).toInt).getOrElse(0)
+          if(!conf.cherryPickedQueries.isEmpty) {
+            if(conf.cherryPickedQueries.contains(queryNum)) {
+//              log("Eligible for Running in cherryPicked flow: " + name)
+              runQuery(sql, iteration = Some(iteration), queryName = name)
+            } else {
+              log("Skipping: " + name + " " + queryNum)
+            }
+          } else if(queryNum >= conf.queryOffset && queryNum <= (conf.queryOffset + conf.queryLimit) && !conf.skippedQueries.contains(queryNum)) {
+//            log("Eligible for Running: " + name)
+            runQuery(sql, iteration = Some(iteration), queryName = name)
+          } else {
+            log("Skipping: " + name + " " + queryNum)
+          }
+        }
       }
     }
     val results = getQueryResults().filter(_.name.startsWith("q"))

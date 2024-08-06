@@ -48,8 +48,8 @@ def run_cmd(cmd, throw_on_error=True, env=None, stream_output=False, **kwargs):
         return exit_code, stdout, stderr
 
 
-def run_cmd_over_ssh(cmd, host, ssh_id_file, user, **kwargs):
-    full_cmd = f"""ssh -i {ssh_id_file} {user}@{host} "{cmd}" """
+def run_cmd_over_ssh(cmd, host, **kwargs):
+    full_cmd = f"""ssh {host} "{cmd}" """
     return run_cmd(full_cmd, **kwargs)
 
 

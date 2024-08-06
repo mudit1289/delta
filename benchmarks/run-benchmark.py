@@ -17,9 +17,11 @@
 #
 
 import argparse
-from scripts.benchmarks import *
+from benchmarks import *
 
 delta_version = "2.1.0"
+iceberg_version = "1.2.0"
+hudi_version = "0.11.1"
 
 # Benchmark name to their specifications. See the imported benchmarks.py for details of benchmark.
 
@@ -36,12 +38,20 @@ benchmarks = {
     "tpcds-3tb-delta-load": DeltaTPCDSDataLoadSpec(delta_version=delta_version, scale_in_gb=3000),
     "tpcds-1gb-parquet-load": ParquetTPCDSDataLoadSpec(scale_in_gb=1),
     "tpcds-3tb-parquet-load": ParquetTPCDSDataLoadSpec(scale_in_gb=3000),
+    "tpcds-1gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=1, use_datasource=True),
+    "tpcds-1000gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=1000, use_datasource=True),
+    "tpcds-10000gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=10000, use_datasource=True),
+    "tpcds-100000gb-hudi-load": HudiTPCDSDataLoadSpec(hudi_version=hudi_version, scale_in_gb=100000, use_datasource=True),
 
     # TPC-DS benchmark
     "tpcds-1gb-delta": DeltaTPCDSBenchmarkSpec(delta_version=delta_version, scale_in_gb=1),
     "tpcds-3tb-delta": DeltaTPCDSBenchmarkSpec(delta_version=delta_version, scale_in_gb=3000),
     "tpcds-1gb-parquet": ParquetTPCDSBenchmarkSpec(scale_in_gb=1),
     "tpcds-3tb-parquet": ParquetTPCDSBenchmarkSpec(scale_in_gb=3000),
+    "tpcds-1gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=1),
+    "tpcds-1000gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=1000),
+    "tpcds-10000gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=10000),
+    "tpcds-100000gb-hudi": HudiTPCDSBenchmarkSpec(hudi_version=hudi_version, scale_in_gb=100000),
 
 }
 
@@ -75,7 +85,7 @@ def parse_args():
         help="Hostname or public IP of the cluster driver")
     parser.add_argument(
         "--ssh-id-file", "-i",
-        required=True,
+        required=False,
         help="SSH identity file")
     parser.add_argument(
         "--spark-conf",
@@ -88,7 +98,8 @@ def parse_args():
         "--use-local-delta-dir",
         help="Local path to delta repository which will be used for running the benchmark " +
              "instead of the version specified in the specification. Make sure that new delta" +
-             " version is compatible with version in the spec.")
+             " version is compatible "
+             "with version in the spec.")
     parser.add_argument(
         "--cloud-provider",
         choices=delta_log_store_classes.keys(),
@@ -114,7 +125,7 @@ def run_single_benchmark(benchmark_name, benchmark_spec, other_args):
                           use_spark_shell=True, local_delta_dir=other_args.use_local_delta_dir)
     benchmark_dir = os.path.dirname(os.path.abspath(__file__))
     with WorkingDirectory(benchmark_dir):
-        benchmark.run(other_args.cluster_hostname, other_args.ssh_id_file, other_args.ssh_user)
+        benchmark.run(other_args.cluster_hostname)
 
 
 if __name__ == "__main__":
@@ -130,7 +141,7 @@ if __name__ == "__main__":
 
     if args.resume_benchmark is not None:
         Benchmark.wait_for_completion(
-            args.cluster_hostname, args.ssh_id_file, args.resume_benchmark, args.ssh_user)
+            args.cluster_hostname, args.resume_benchmark)
         exit(0)
 
     benchmark_names = args.benchmark.split(",")
